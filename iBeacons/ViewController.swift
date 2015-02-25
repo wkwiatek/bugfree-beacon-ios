@@ -54,6 +54,28 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
         if (knownBeacons.count > 0) {
             let closestBeacon = knownBeacons[0] as ESTBeacon;
             self.view.backgroundColor = self.colors[closestBeacon.minor.integerValue];
+
+            // GET call test
+            var postEndpoint: String = "http://jsonplaceholder.typicode.com/posts/1";
+            Alamofire.request(.GET, postEndpoint)
+                .responseJSON { (request, response, data, error) in
+                    if let anError = error {
+                        println("error calling GET on /posts/1");
+                        println(error);
+                    }
+                    else if let data: AnyObject = data {
+                        let post = JSON(data);
+                        println("The post is: " + post.description)
+                        if let title = post["title"].string {
+                            println("The title is: " + title)
+                        }
+                        else {
+                            println("error parsing /posts/1")
+                        }
+                    }
+            }
+
+
         }
     }
 
