@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import EstimoteSDK
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, ESTBeaconManagerDelegate {
     

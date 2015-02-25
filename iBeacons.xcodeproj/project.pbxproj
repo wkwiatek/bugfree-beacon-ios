@@ -14,7 +14,7 @@
 		7CE3F25B1A8AABA900B062E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3F2591A8AABA900B062E1 /* LaunchScreen.xib */; };
 		7CE3F2671A8AABA900B062E1 /* iBeaconsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F2661A8AABA900B062E1 /* iBeaconsTests.swift */; };
 		7CE3F2711A8AAC8400B062E1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3F2701A8AAC8400B062E1 /* Podfile */; };
-		EBE255A8407E399697D4197E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A815EF2116EFC4E9DFEA232 /* libPods.a */; };
+		C92C5241C80FB7B06B0C27E2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD47BA90A74E72EE651A7509 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +29,6 @@
 
 /* Begin PBXFileReference section */
 		099D27526693DBED581D63FF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		3A815EF2116EFC4E9DFEA232 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C0532BA1A8AAE550063E36B /* Estimote-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Estimote-Bridging-Header.h"; sourceTree = "<group>"; };
 		7CE3F24B1A8AABA900B062E1 /* iBeacons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeacons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE3F24F1A8AABA900B062E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE3F2501A8AABA900B062E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +41,7 @@
 		7CE3F2661A8AABA900B062E1 /* iBeaconsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBeaconsTests.swift; sourceTree = "<group>"; };
 		7CE3F2701A8AAC8400B062E1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B67A35AA18216FDAE0D80797 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CD47BA90A74E72EE651A7509 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBE255A8407E399697D4197E /* libPods.a in Frameworks */,
+				C92C5241C80FB7B06B0C27E2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +93,6 @@
 				7CE3F2571A8AABA900B062E1 /* Images.xcassets */,
 				7CE3F2591A8AABA900B062E1 /* LaunchScreen.xib */,
 				7CE3F24E1A8AABA900B062E1 /* Supporting Files */,
-				7C0532BA1A8AAE550063E36B /* Estimote-Bridging-Header.h */,
 			);
 			path = iBeacons;
 			sourceTree = "<group>";
@@ -127,7 +125,7 @@
 		8EA53603DBC6F2D81A770CFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A815EF2116EFC4E9DFEA232 /* libPods.a */,
+				CD47BA90A74E72EE651A7509 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,6 +151,7 @@
 				7CE3F2481A8AABA900B062E1 /* Frameworks */,
 				7CE3F2491A8AABA900B062E1 /* Resources */,
 				37B8E9E89126E347BA147490 /* Copy Pods Resources */,
+				9E8DCE7ABCA56535A31D8E36 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -268,6 +267,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E8DCE7ABCA56535A31D8E36 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -405,7 +419,6 @@
 				INFOPLIST_FILE = iBeacons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iBeacons/Estimote-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -417,7 +430,6 @@
 				INFOPLIST_FILE = iBeacons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/iBeacons/Estimote-Bridging-Header.h";
 			};
 			name = Release;
 		};
