@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class BejkonREST {
     let host: String
@@ -16,16 +18,21 @@ class BejkonREST {
     }
     
     func findBeacon(uuid: String, major: UInt16, minor: UInt16) {
+        
+        Alamofire
+            .request(.GET, "\(host)/beacon", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
+            .responseJSON { (req, res, response, error) in
+                
+                if (error != nil) {
+                    println(req)
+                    println(res)
+                } else {
+                    var beacon = JSON(response!)
+                    
+                    println(beacon[0]["image_url"])
+                    println(beacon[0]["push_text"])
+                }
 
-        var url = "\(host)/beacon?uuid=\(uuid)&major=\(major)&minor=\(minor)"
-        
-        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: url)!) { (data, response, error) in
-        
-            if let datastring = NSString(data: data, encoding: NSUTF8StringEncoding) {
-                println("received: \(datastring)")
-            }
-
-            }.resume()
-        
+        }
     }
 }
