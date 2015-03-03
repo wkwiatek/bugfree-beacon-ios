@@ -13,7 +13,9 @@ import SwiftyJSON
 
 class ViewController: UIViewController, ESTBeaconManagerDelegate {
     
-    let beaconManager : ESTBeaconManager = ESTBeaconManager();
+    let uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
+    let beaconManager: ESTBeaconManager = ESTBeaconManager();
+    let server: BejkonREST = BejkonREST(host: "http://bejkon.herokuapp.com");
     
     let colors = [
         12917: UIColor(red: 72/255, green: 209/255, blue: 204/255, alpha: 1)
@@ -25,12 +27,16 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
         
         beaconManager.delegate = self;
         
-        let region : ESTBeaconRegion = ESTBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D"), identifier: "Estimote");
+        let region : ESTBeaconRegion = ESTBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid), identifier: "Estimote");
         
         beaconManager.startMonitoringForRegion(region);
         beaconManager.requestStateForRegion(region);
         beaconManager.startRangingBeaconsInRegion(region);
         
+    }
+    
+    @IBAction func buttonPressed() {
+        server.findBeacon(uuid, major: 36077, minor: 12917)
     }
     
     func beaconManager(manager: ESTBeaconManager!, didStartMonitoringForRegion region: ESTBeaconRegion!) {
