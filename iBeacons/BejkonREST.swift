@@ -17,22 +17,14 @@ class BejkonREST {
         self.host = host
     }
     
-    func findBeacon(uuid: String, major: UInt16, minor: UInt16) {
-        
+    func findBeacon(uuid: String, major: Int, minor: Int, completionHandler: (responseObject: AnyObject?, error: NSError?) -> ()) {
+    
         Alamofire
             .request(.GET, "\(host)/beacon", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
-            .responseJSON { (req, res, response, error) in
+            .responseJSON { (request, response, responseObject, error) in
+                completionHandler(responseObject: responseObject, error: error)
                 
-                if (error != nil) {
-                    println(req)
-                    println(res)
-                } else {
-                    var beacon = JSON(response!)
-                    
-                    println(beacon[0]["image_url"])
-                    println(beacon[0]["push_text"])
-                }
-
         }
+        
     }
 }

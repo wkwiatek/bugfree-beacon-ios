@@ -17,6 +17,9 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
     let beaconManager: ESTBeaconManager = ESTBeaconManager();
     let server: BejkonREST = BejkonREST(host: "http://bejkon.herokuapp.com");
     
+    var notifications = [ESTBeacon]();
+    var notification : UILocalNotification = UILocalNotification();
+    
     let colors = [
         12917: UIColor(red: 72/255, green: 209/255, blue: 204/255, alpha: 1)
     ];
@@ -35,33 +38,42 @@ class ViewController: UIViewController, ESTBeaconManagerDelegate {
 
     }
     
-    @IBAction func buttonPressed() {
-        server.findBeacon(uuid, major: 36077, minor: 12917)
-    }
-    
     func beaconManager(manager: ESTBeaconManager!, didStartMonitoringForRegion region: ESTBeaconRegion!) {
         println("ESTBeaconManagerDelegate staring monitoring for region: \(region.identifier)");
     }
     
     func beaconManager(manager: ESTBeaconManager!, didEnterRegion region: ESTBeaconRegion!) {
         println("Beacon entered region");
-        var notification : UILocalNotification = UILocalNotification();
-        notification.alertBody = "Beacon has been found nearby. Check what information it contains.";
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        UIApplication.sharedApplication().presentLocalNotificationNow(notification);
     }
     
     func beaconManager(manager: ESTBeaconManager!, didExitRegion region: ESTBeaconRegion!) {
         println("Beacon left region");
+        notifications.removeAll();
     }
-    
     
     func beaconManager(manager: ESTBeaconManager!, didRangeBeacons beacons: [AnyObject], inRegion region: ESTBeaconRegion!) {
         println("Ranged beacons: \(beacons)");
         let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
         if (knownBeacons.count > 0) {
-            let closestBeacon = knownBeacons[0] as ESTBeacon;
-            self.view.backgroundColor = self.colors[closestBeacon.minor.integerValue];
+            for object in knownBeacons {
+                let beacon = object as ESTBeacon;
+                if(!contains(notifications, beacon)) {
+                    println(beacon);
+                    server.findBeacon(uuid, major: beacon.major.integerValue, minor: beacon.minor.integerValue) { responseObject, error in
+                        var responseJSON = JSON(responseObject!);
+                        if let pushText = responseJSON[0]["push_text"].string{
+                            //Now you got your value
+                            self.notification.alertBody = pushText;
+                            self.notification.soundName = UILocalNotificationDefaultSoundName;
+                            UIApplication.sharedApplication().presentLocalNotificationNow(self.notification);
+                        }
+                        
+                    }
+                    notifications.append(beacon);
+                }
+            }
+
+            println(notifications);
         }
     }
 
