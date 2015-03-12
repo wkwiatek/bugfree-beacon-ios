@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,25 +17,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzl-1i-bRR">
-                                <rect key="frame" x="224" y="285" width="157" height="30"/>
-                                <state key="normal" title="Find that nasty beacon">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Beacons in range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kS2-TA-8d7">
+                                <rect key="frame" x="245" y="171" width="111" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTa-AM-b9s">
+                                <rect key="frame" x="295" y="200" width="10" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzl-1i-bRR">
+                                <rect key="frame" x="212" y="514" width="176" height="30"/>
+                                <state key="normal" title="Find these nasty beacons">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oUO-67-eiU"/>
+                                    <action selector="findBeacons:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NNp-XI-YRE"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="kS2-TA-8d7" secondAttribute="centerX" constant="-0.5" id="INK-xe-UYM"/>
+                            <constraint firstAttribute="centerX" secondItem="cTa-AM-b9s" secondAttribute="centerX" id="Mjg-QZ-c7d"/>
                             <constraint firstAttribute="centerX" secondItem="kzl-1i-bRR" secondAttribute="centerX" constant="-3" id="Nut-Ft-L2V"/>
-                            <constraint firstAttribute="centerY" secondItem="kzl-1i-bRR" secondAttribute="centerY" id="Wo0-p1-Zbn"/>
+                            <constraint firstItem="cTa-AM-b9s" firstAttribute="top" secondItem="kS2-TA-8d7" secondAttribute="bottom" constant="8" id="Od7-Xj-S6E"/>
+                            <constraint firstAttribute="centerY" secondItem="kzl-1i-bRR" secondAttribute="bottom" id="Wo0-p1-Zbn"/>
+                            <constraint firstItem="kS2-TA-8d7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="151" id="XkB-i0-Gdm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activeBeacons" destination="cTa-AM-b9s" id="wsl-Xp-Yuo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="571" y="55"/>
         </scene>
     </scenes>
 </document>
