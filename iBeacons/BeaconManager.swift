@@ -17,12 +17,9 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
             self.beacon = beacon
         }
     }
-
-    var beacons: [BeaconData] {
-        get { return beaconsInRange.map { self.collectData($0) } }
-    }
     
-    private var beaconsInRange = [ESTBeacon]();
+    var beaconsInRange = [ESTBeacon]();
+    var beaconsInRangeSorted = [AnyObject]();
     
     func startMonitoring() {
         let region : ESTBeaconRegion = ESTBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid), identifier: "Estimote");
@@ -34,7 +31,8 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
         beaconManager.startRangingBeaconsInRegion(region);
     }
     
-    private func collectData(beacon: ESTBeacon) -> BeaconData {
+    func collectData(beacon: AnyObject, completion: (beacon: BeaconData) -> ()) {
+        var beacon = beacon as ESTBeacon;
         var bData = BeaconData(beacon: beacon)
         
         server.findBeacon(uuid, major: beacon.major.integerValue, minor: beacon.minor.integerValue) { response in
@@ -44,9 +42,8 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
             println("Push text: \(pushText)")
             bData.push_text = pushText
             bData.image_url = NSURL(string: imageUrl!)
+            completion(beacon: bData)
         }
-        
-        return bData
     }
     
     func beaconManager(manager: ESTBeaconManager!, didStartMonitoringForRegion region: ESTBeaconRegion!) {
@@ -66,18 +63,23 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
         println("Ranged beacons: \(beacons)");
         let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
         
+        beaconsInRangeSorted = beacons;
+        
         if (knownBeacons.count > 0) {
             for object in knownBeacons {
                 let beacon = object as ESTBeacon;
                 
                 if(!contains(beaconsInRange, beacon)) {
-                    println(beacon);
                     beaconsInRange.append(beacon);
                 }
             }
-            
-            println(beaconsInRange);
         }
+        
+//        var viewControllerHandle = ViewController(nibName: "ViewController", bundle: nil);
+//        if var activeBeacon = viewControllerHandle.activeBeacons {
+//            viewControllerHandle.activeBeacons.text = "\(beacons.count)";
+//        }
+        
     }
 
 }

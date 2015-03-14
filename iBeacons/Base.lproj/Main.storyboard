@@ -25,15 +25,18 @@
                                     <action selector="findBeacons:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NNp-XI-YRE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beacons in range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kS2-TA-8d7">
-                                <rect key="frame" x="247.5" y="160.5" width="105" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTa-AM-b9s">
                                 <rect key="frame" x="295" y="184" width="10" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LR4-7H-AHc">
+                                <rect key="frame" x="180" y="20" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beacons in range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kS2-TA-8d7">
+                                <rect key="frame" x="248" y="160" width="105" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -42,6 +45,7 @@
                         <constraints>
                             <constraint firstItem="cTa-AM-b9s" firstAttribute="top" secondItem="kS2-TA-8d7" secondAttribute="bottom" constant="8" id="74S-bw-9HT"/>
                             <constraint firstAttribute="centerX" secondItem="kzl-1i-bRR" secondAttribute="centerX" id="EjU-SO-flw"/>
+                            <constraint firstAttribute="centerX" secondItem="LR4-7H-AHc" secondAttribute="centerX" id="FIM-RN-oRj"/>
                             <constraint firstAttribute="centerX" secondItem="cTa-AM-b9s" secondAttribute="centerX" id="b7Z-O4-uTe"/>
                             <constraint firstAttribute="centerY" secondItem="kS2-TA-8d7" secondAttribute="centerY" constant="131.5" id="c9B-9a-3PZ"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="kzl-1i-bRR" secondAttribute="bottom" constant="56" id="iFX-J5-ZNS"/>
@@ -50,6 +54,7 @@
                     </view>
                     <connections>
                         <outlet property="activeBeacons" destination="cTa-AM-b9s" id="wsl-Xp-Yuo"/>
+                        <outlet property="mainImage" destination="LR4-7H-AHc" id="Oh6-Uu-2Q2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
