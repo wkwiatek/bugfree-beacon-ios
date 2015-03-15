@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KOT-ju-U4M">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="iBeacons" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="DetailsViewController" customModule="iBeacons" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,27 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLt-LW-t8E" userLabel="NoSigalView">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beacon" translatesAutoresizingMaskIntoConstraints="NO" id="GI0-HE-NsY">
-                                        <rect key="frame" x="172" y="162" width="256" height="256"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brak sygnału" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjg-5F-dmw" userLabel="Brak sygnału">
-                                        <rect key="frame" x="255" y="438" width="90.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.96525335363279285" blue="0.93863432067878416" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="GI0-HE-NsY" secondAttribute="centerY" id="Cwo-G4-UcY"/>
-                                    <constraint firstAttribute="centerX" secondItem="GI0-HE-NsY" secondAttribute="centerX" id="EfX-cc-t5h"/>
-                                    <constraint firstItem="bjg-5F-dmw" firstAttribute="top" secondItem="GI0-HE-NsY" secondAttribute="bottom" constant="20" id="Ewb-g3-c7T"/>
-                                    <constraint firstAttribute="centerX" secondItem="bjg-5F-dmw" secondAttribute="centerX" id="xZo-5s-o1a"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-y3-tK5" userLabel="BeaconDataView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
@@ -128,23 +107,78 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DgO-y3-tK5" secondAttribute="trailing" id="6a6-Og-0KI"/>
                             <constraint firstItem="DgO-y3-tK5" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="7UP-st-fPu"/>
-                            <constraint firstItem="HLt-LW-t8E" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Aax-il-5nu"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="DgO-y3-tK5" secondAttribute="bottom" id="Ef1-Y5-Pmw"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="HLt-LW-t8E" secondAttribute="bottom" id="RFd-t4-tvx"/>
-                            <constraint firstItem="HLt-LW-t8E" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="dmV-d3-oqk"/>
                             <constraint firstItem="DgO-y3-tK5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="z2H-Ua-pHY"/>
-                            <constraint firstAttribute="trailing" secondItem="HLt-LW-t8E" secondAttribute="trailing" id="zBZ-Sm-NAw"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="detailsView" destination="DgO-y3-tK5" id="mK4-dR-yq2"/>
+                        <outlet property="detailedView" destination="DgO-y3-tK5" id="uv6-vE-paa"/>
                         <outlet property="mainImage" destination="XDG-nc-dij" id="2oa-Db-p2d"/>
-                        <outlet property="noSignalView" destination="HLt-LW-t8E" id="IaM-6u-HbC"/>
+                        <segue destination="KOT-ju-U4M" kind="presentation" identifier="showNoSignal" id="M4q-AV-Pgc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279" y="44"/>
+            <point key="canvasLocation" x="665" y="2"/>
+        </scene>
+        <!--No Signal View Controller-->
+        <scene sceneID="QVa-06-4mt">
+            <objects>
+                <viewController id="KOT-ju-U4M" customClass="NoSignalViewController" customModule="iBeacons" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vVA-Bg-StP"/>
+                        <viewControllerLayoutGuide type="bottom" id="qKj-vK-kaC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zGx-bH-NVR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PH2-tR-jrL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beacon" translatesAutoresizingMaskIntoConstraints="NO" id="AgV-c0-NbA">
+                                        <rect key="frame" x="172" y="172" width="256" height="256"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brak sygnału" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4Y-yR-wPM">
+                                        <rect key="frame" x="255" y="468" width="90.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beacon app" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgB-lG-hh8">
+                                        <rect key="frame" x="238.5" y="88.5" width="123" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                        <color key="textColor" red="1" green="0.96525335359999997" blue="0.93863432069999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.66378068305321603" green="0.6450643341561364" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="AgV-c0-NbA" firstAttribute="top" secondItem="qgB-lG-hh8" secondAttribute="bottom" constant="55" id="9Ne-RS-Jju"/>
+                                    <constraint firstAttribute="centerX" secondItem="qgB-lG-hh8" secondAttribute="centerX" id="NK2-Yn-RgB"/>
+                                    <constraint firstItem="c4Y-yR-wPM" firstAttribute="top" secondItem="AgV-c0-NbA" secondAttribute="bottom" constant="40" id="Ntq-xQ-2vC"/>
+                                    <constraint firstAttribute="centerX" secondItem="c4Y-yR-wPM" secondAttribute="centerX" id="ZAE-F3-xvV"/>
+                                    <constraint firstAttribute="centerX" secondItem="AgV-c0-NbA" secondAttribute="centerX" id="doO-Nl-UYZ"/>
+                                    <constraint firstAttribute="centerY" secondItem="AgV-c0-NbA" secondAttribute="centerY" id="jYZ-ym-tag"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PH2-tR-jrL" firstAttribute="top" secondItem="zGx-bH-NVR" secondAttribute="top" id="0J0-So-afp"/>
+                            <constraint firstItem="PH2-tR-jrL" firstAttribute="bottom" secondItem="qKj-vK-kaC" secondAttribute="top" id="Dms-kr-NZO"/>
+                            <constraint firstItem="PH2-tR-jrL" firstAttribute="leading" secondItem="zGx-bH-NVR" secondAttribute="leading" id="Ewd-bZ-Gyb"/>
+                            <constraint firstAttribute="trailing" secondItem="PH2-tR-jrL" secondAttribute="trailing" id="SA8-vn-rlc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="noSignalView" destination="PH2-tR-jrL" id="AyI-jP-3zS"/>
+                        <segue destination="vXZ-lx-hvc" kind="presentation" identifier="ShowDetails" id="Up7-vl-o3U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gon-Bn-s98" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-80" y="2"/>
         </scene>
     </scenes>
     <resources>

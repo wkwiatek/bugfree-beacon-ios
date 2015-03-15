@@ -12,7 +12,7 @@ struct BeaconData {
     }
 }
 
-class BeaconManager: NSObject, ESTBeaconManagerDelegate, BeaconAware {
+class BeaconManager: NSObject, ESTBeaconManagerDelegate {
     
     let uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
     let beaconManager: ESTBeaconManager = ESTBeaconManager();
@@ -20,7 +20,18 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate, BeaconAware {
     
     var beaconsInRange = [ESTBeacon]();
     var beaconsInRangeSorted = [AnyObject]();
-    var view: ViewController?
+    
+    var noSignalView: NoSignalViewController?
+    var detailsView: DetailsViewController?
+    
+    class var sharedInstance : BeaconManager {
+        struct Static {
+            static let instance : BeaconManager = BeaconManager()
+        }
+        
+        return Static.instance
+    }
+    
     
     func startMonitoring() {
         let region : ESTBeaconRegion = ESTBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid), identifier: "Estimote");
@@ -32,14 +43,20 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate, BeaconAware {
         beaconManager.startRangingBeaconsInRegion(region);
     }
     
-    func collectData(beacon: AnyObject) -> BeaconData {
+    func collectData(beacon: AnyObject) {
         var beacon = beacon as ESTBeacon;
         var bData = BeaconData(beacon: beacon)
 
-        bData.push_text = "Some push text"
-        bData.image_url = NSURL(string: "http://i.telegraph.co.uk/multimedia/archive/01292/R81_1292690i.jpg")
-        
-        return bData
+        server.findBeacon(uuid, major: beacon.major.integerValue, minor: beacon.minor.integerValue) { response in
+            println("Asking server")
+            let json = JSON(response.response!)
+            
+            bData.push_text = json[0]["pushText"].string!
+            bData.image_url = NSURL(string: json[0]["imageUrl"].string!)
+            
+            println("Go to details view")
+            self.noSignalView?.presentDetails(bData)
+        }
     }
     
     func beaconManager(manager: ESTBeaconManager!, didStartMonitoringForRegion region: ESTBeaconRegion!) {
@@ -53,7 +70,7 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate, BeaconAware {
     func beaconManager(manager: ESTBeaconManager!, didExitRegion region: ESTBeaconRegion!) {
         println("Beacon left region");
         beaconsInRange.removeAll();
-        view!.initializeUI()
+        detailsView?.noSignal()
     }
     
     func beaconManager(manager: ESTBeaconManager!, didRangeBeacons beacons: [AnyObject], inRegion region: ESTBeaconRegion!) {
@@ -68,19 +85,9 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate, BeaconAware {
                 
                 if(!contains(beaconsInRange, beacon)) {
                     beaconsInRange.append(beacon);
-                    view!.initializeUI()
+                    collectData(beacon)
                 }
             }
         }
-
     }
-    
-    func anyBeaconInRange() -> Bool {
-        return beaconsInRange.count > 0
-    }
-    
-    func closestBeacon() -> BeaconData {
-        return collectData(beaconsInRange[0])
-    }
-    
 }
