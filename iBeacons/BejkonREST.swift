@@ -13,6 +13,7 @@ class BejkonREST {
         Alamofire
             .request(.GET, "\(host)/beacon", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
             .responseJSON { (request, response, responseObject, error) in
+                println("Received: \(responseObject)")
                 completion(response: JSON(responseObject!))
         }
     }

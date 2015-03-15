@@ -2,24 +2,25 @@ import Foundation
 import EstimoteSDK
 import SwiftyJSON
 
-class BeaconManager: NSObject, ESTBeaconManagerDelegate {
+struct BeaconData {
+    let beacon: ESTBeacon
+    var push_text: String?
+    var image_url: NSURL?
+    
+    init(beacon: ESTBeacon) {
+        self.beacon = beacon
+    }
+}
+
+class BeaconManager: NSObject, ESTBeaconManagerDelegate, BeaconAware {
     
     let uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
     let beaconManager: ESTBeaconManager = ESTBeaconManager();
     let server: BejkonREST = BejkonREST(host: "http://bejkon.herokuapp.com");
     
-    struct BeaconData {
-        let beacon: ESTBeacon
-        var push_text: String?
-        var image_url: NSURL?
-        
-        init(beacon: ESTBeacon) {
-            self.beacon = beacon
-        }
-    }
-    
     var beaconsInRange = [ESTBeacon]();
     var beaconsInRangeSorted = [AnyObject]();
+    var view: ViewController?
     
     func startMonitoring() {
         let region : ESTBeaconRegion = ESTBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid), identifier: "Estimote");
@@ -31,19 +32,14 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
         beaconManager.startRangingBeaconsInRegion(region);
     }
     
-    func collectData(beacon: AnyObject, completion: (beacon: BeaconData) -> ()) {
+    func collectData(beacon: AnyObject) -> BeaconData {
         var beacon = beacon as ESTBeacon;
         var bData = BeaconData(beacon: beacon)
+
+        bData.push_text = "Some push text"
+        bData.image_url = NSURL(string: "http://i.telegraph.co.uk/multimedia/archive/01292/R81_1292690i.jpg")
         
-        server.findBeacon(uuid, major: beacon.major.integerValue, minor: beacon.minor.integerValue) { response in
-            var pushText = response![0]["push_text"].string
-            var imageUrl = response![0]["image_url"].string
-            
-            println("Push text: \(pushText)")
-            bData.push_text = pushText
-            bData.image_url = NSURL(string: imageUrl!)
-            completion(beacon: bData)
-        }
+        return bData
     }
     
     func beaconManager(manager: ESTBeaconManager!, didStartMonitoringForRegion region: ESTBeaconRegion!) {
@@ -57,12 +53,13 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
     func beaconManager(manager: ESTBeaconManager!, didExitRegion region: ESTBeaconRegion!) {
         println("Beacon left region");
         beaconsInRange.removeAll();
+        view!.initializeUI()
     }
     
     func beaconManager(manager: ESTBeaconManager!, didRangeBeacons beacons: [AnyObject], inRegion region: ESTBeaconRegion!) {
         println("Ranged beacons: \(beacons)");
+
         let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
-        
         beaconsInRangeSorted = beacons;
         
         if (knownBeacons.count > 0) {
@@ -71,15 +68,19 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
                 
                 if(!contains(beaconsInRange, beacon)) {
                     beaconsInRange.append(beacon);
+                    view!.initializeUI()
                 }
             }
         }
-        
-//        var viewControllerHandle = ViewController(nibName: "ViewController", bundle: nil);
-//        if var activeBeacon = viewControllerHandle.activeBeacons {
-//            viewControllerHandle.activeBeacons.text = "\(beacons.count)";
-//        }
-        
-    }
 
+    }
+    
+    func anyBeaconInRange() -> Bool {
+        return beaconsInRange.count > 0
+    }
+    
+    func closestBeacon() -> BeaconData {
+        return collectData(beaconsInRange[0])
+    }
+    
 }
