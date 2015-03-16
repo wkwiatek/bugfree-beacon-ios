@@ -1,18 +1,10 @@
-//
-//  AppDelegate.swift
-//  iBeacons
-//
-//  Created by Wojciech Kwiatek on 10/02/15.
-//  Copyright (c) 2015 Wojciech Kwiatek. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
         if(UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:")))
