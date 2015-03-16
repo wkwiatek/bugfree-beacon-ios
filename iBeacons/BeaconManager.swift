@@ -4,8 +4,12 @@ import SwiftyJSON
 
 struct BeaconData {
     let beacon: ESTBeacon
-    var push_text: String?
-    var image_url: NSURL?
+    var name: String?
+    var carMake: String?
+    var carModel: String?
+    var milage: String?
+    var imageUrl: NSURL?
+    var detailsUrl: NSURL?
     
     init(beacon: ESTBeacon) {
         self.beacon = beacon
@@ -51,8 +55,12 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
             println("Asking server")
             let json = JSON(response.response!)
             
-            bData.push_text = json[0]["pushText"].string!
-            bData.image_url = NSURL(string: json[0]["imageUrl"].string!)
+            bData.name = json[0]["data"]["name"].string
+            bData.carMake = json[0]["data"]["carMake"].string
+            bData.carModel = json[0]["data"]["carModel"].string
+            bData.milage = json[0]["data"]["milage"].string
+            bData.imageUrl = NSURL(string: json[0]["data"]["imageUrl"].string!)
+            bData.detailsUrl = NSURL(string: json[0]["data"]["detailsUrl"].string!)
             
             println("Go to details view")
             self.noSignalView?.presentDetails(bData)

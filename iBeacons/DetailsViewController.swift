@@ -6,6 +6,9 @@ class DetailsViewController: UIViewController {
     var beaconData: BeaconData?
     
     @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet weak var carMake: UILabel!
+    @IBOutlet weak var carModel: UILabel!
+    @IBOutlet weak var milage: UILabel!
     
     @IBOutlet weak var detailedView: UIView! {
         didSet {
@@ -20,7 +23,7 @@ class DetailsViewController: UIViewController {
     
     func initializeUI() {
         if beaconData != nil {
-            let imageData = NSData(contentsOfURL: beaconData!.image_url!)
+            let imageData = NSData(contentsOfURL: beaconData!.imageUrl!)
             
             mainImage.image = UIImage(data: imageData!)
             //self.mainImage.contentMode = UIViewContentMode.ScaleAspectFill
@@ -29,6 +32,10 @@ class DetailsViewController: UIViewController {
             mainImage.layer.borderWidth = 2.0
             mainImage.layer.borderColor = UIColor.whiteColor().CGColor
             mainImage.clipsToBounds = true
+            
+            carMake.text = beaconData!.carMake
+            carModel.text = beaconData!.carModel
+            milage.text = beaconData!.milage
         }
     }
     
