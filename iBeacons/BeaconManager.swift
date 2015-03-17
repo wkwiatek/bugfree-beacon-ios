@@ -2,6 +2,12 @@ import Foundation
 import CoreLocation
 import SwiftyJSON
 
+extension CLBeacon: Equatable {}
+
+public func ==(lhs: CLBeacon, rhs: CLBeacon) -> Bool {
+    return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.proximityUUID == rhs.proximityUUID
+}
+
 struct BeaconData {
     let beacon: CLBeacon
     var name: String?
