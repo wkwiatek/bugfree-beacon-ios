@@ -10,6 +10,11 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var carModel: UILabel!
     @IBOutlet weak var milage: UILabel!
     
+    @IBAction func showDetails(sender: AnyObject) {
+        let detailsUrl = beaconData?.detailsUrl
+        UIApplication.sharedApplication().openURL(detailsUrl!)
+    }
+    
     @IBOutlet weak var detailedView: UIView! {
         didSet {
             beaconManager.detailsView = self
