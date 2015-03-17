@@ -1,4 +1,5 @@
 import UIKit
+import SVWebViewController
 
 class DetailsViewController: UIViewController {
     
@@ -12,7 +13,8 @@ class DetailsViewController: UIViewController {
     
     @IBAction func showDetails(sender: AnyObject) {
         let detailsUrl = beaconData?.detailsUrl
-        UIApplication.sharedApplication().openURL(detailsUrl!)
+        let webViewController = SVModalWebViewController(URL: detailsUrl)
+        self.presentViewController(webViewController, animated: true, completion: nil)
     }
     
     @IBOutlet weak var detailedView: UIView! {
