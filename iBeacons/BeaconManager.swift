@@ -1,9 +1,9 @@
 import Foundation
-import EstimoteSDK
+import CoreLocation
 import SwiftyJSON
 
 struct BeaconData {
-    let beacon: ESTBeacon
+    let beacon: CLBeacon
     var name: String?
     var carMake: String?
     var carModel: String?
@@ -11,18 +11,18 @@ struct BeaconData {
     var imageUrl: NSURL?
     var detailsUrl: NSURL?
     
-    init(beacon: ESTBeacon) {
+    init(beacon: CLBeacon) {
         self.beacon = beacon
     }
 }
 
-class BeaconManager: NSObject, ESTBeaconManagerDelegate {
+class BeaconManager: NSObject, CLLocationManagerDelegate {
     
     let uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
-    let beaconManager: ESTBeaconManager = ESTBeaconManager();
+    let locationManager: CLLocationManager = CLLocationManager();
     let server: BejkonREST = BejkonREST(host: "http://bejkon.herokuapp.com");
     
-    var beaconsInRange = [ESTBeacon]();
+    var beaconsInRange = [CLBeacon]();
     var beaconsInRangeSorted = [AnyObject]();
     
     var noSignalView: NoSignalViewController?
@@ -38,17 +38,17 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
     
     
     func startMonitoring() {
-        let region : ESTBeaconRegion = ESTBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid), identifier: "Estimote");
+        let region : CLBeaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid), identifier: "Estimote");
         
-        beaconManager.delegate = self;
-        beaconManager.requestAlwaysAuthorization();
+        locationManager.delegate = self;
+        locationManager.requestAlwaysAuthorization();
         
-        beaconManager.startMonitoringForRegion(region);
-        beaconManager.startRangingBeaconsInRegion(region);
+        locationManager.startMonitoringForRegion(region);
+        locationManager.startRangingBeaconsInRegion(region);
     }
     
     func collectData(beacon: AnyObject) {
-        var beacon = beacon as ESTBeacon;
+        var beacon = beacon as CLBeacon;
         var bData = BeaconData(beacon: beacon)
 
         server.findBeacon(uuid, major: beacon.major.integerValue, minor: beacon.minor.integerValue) { response in
@@ -67,21 +67,21 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
         }
     }
     
-    func beaconManager(manager: ESTBeaconManager!, didStartMonitoringForRegion region: ESTBeaconRegion!) {
+    func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLBeaconRegion!) {
         println("ESTBeaconManagerDelegate staring monitoring for region: \(region.identifier)");
     }
     
-    func beaconManager(manager: ESTBeaconManager!, didEnterRegion region: ESTBeaconRegion!) {
+    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLBeaconRegion!) {
         println("Beacon entered region");
     }
     
-    func beaconManager(manager: ESTBeaconManager!, didExitRegion region: ESTBeaconRegion!) {
+    func locationManager(manager: CLLocationManager!, didExitRegion region: CLBeaconRegion!) {
         println("Beacon left region");
         beaconsInRange.removeAll();
         detailsView?.noSignal()
     }
     
-    func beaconManager(manager: ESTBeaconManager!, didRangeBeacons beacons: [AnyObject], inRegion region: ESTBeaconRegion!) {
+    func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject], inRegion region: CLBeaconRegion!) {
         println("Ranged beacons: \(beacons)");
 
         let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
@@ -89,7 +89,7 @@ class BeaconManager: NSObject, ESTBeaconManagerDelegate {
         
         if (knownBeacons.count > 0) {
             for object in knownBeacons {
-                let beacon = object as ESTBeacon;
+                let beacon = object as CLBeacon;
                 
                 if(!contains(beaconsInRange, beacon)) {
                     beaconsInRange.append(beacon);
