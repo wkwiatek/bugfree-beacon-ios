@@ -2,6 +2,12 @@ import Foundation
 import CoreLocation
 import SwiftyJSON
 
+extension CLBeacon: Equatable {}
+
+public func ==(lhs: CLBeacon, rhs: CLBeacon) -> Bool {
+    return lhs.minor == rhs.minor && lhs.minor == rhs.minor && lhs.proximityUUID == rhs.proximityUUID
+}
+
 struct BeaconData {
     let beacon: CLBeacon
     var name: String?
@@ -17,6 +23,8 @@ struct BeaconData {
 }
 
 class BeaconManager: NSObject, CLLocationManagerDelegate {
+    
+    
     
     let uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
     let locationManager: CLLocationManager = CLLocationManager();
