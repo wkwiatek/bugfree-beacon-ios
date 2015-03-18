@@ -33,11 +33,11 @@ class DetailsViewController: UIViewController {
             let imageData = NSData(contentsOfURL: beaconData!.imageUrl!)
             
             mainImage.image = UIImage(data: imageData!)
-            //self.mainImage.contentMode = UIViewContentMode.ScaleAspectFill
+            mainImage.contentMode = .ScaleAspectFill
             
             mainImage.layer.cornerRadius = mainImage.frame.size.width / 2
             mainImage.layer.borderWidth = 2.0
-            mainImage.layer.borderColor = UIColor.whiteColor().CGColor
+            mainImage.layer.borderColor = UIColor.blackColor().CGColor
             mainImage.clipsToBounds = true
             
             carMake.text = beaconData!.carMake
