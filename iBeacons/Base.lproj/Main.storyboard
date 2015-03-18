@@ -19,8 +19,8 @@
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-y3-tK5" userLabel="BeaconDataView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYY-Dl-mbI">
-                                        <rect key="frame" x="200" y="520" width="200" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYY-Dl-mbI">
+                                        <rect key="frame" x="230" y="532" width="140" height="36"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Więcej informacji">
                                             <color key="titleShadowColor" red="0.0" green="1" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -36,28 +36,28 @@
                                             <constraint firstAttribute="width" constant="200" id="m9y-WE-YJw"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Marka" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSo-XQ-Ane">
-                                        <rect key="frame" x="288" y="336" width="25.5" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marka" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSo-XQ-Ane">
+                                        <rect key="frame" x="288" y="339.5" width="25.5" height="12"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="10"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="carMake" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYM-E6-ezG">
-                                        <rect key="frame" x="256" y="313" width="88.5" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="carMake" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYM-E6-ezG">
+                                        <rect key="frame" x="256" y="305" width="88.5" height="26.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Przebieg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGX-JE-J4c">
-                                        <rect key="frame" x="282" y="430" width="36" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Przebieg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGX-JE-J4c">
+                                        <rect key="frame" x="282" y="454.5" width="36" height="12"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="10"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Model" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWW-xr-en7">
-                                        <rect key="frame" x="287" y="383" width="26" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWW-xr-en7">
+                                        <rect key="frame" x="287" y="397" width="26" height="12"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="10"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="carModel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-4g-LEj">
-                                        <rect key="frame" x="252" y="359" width="96" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="carModel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-4g-LEj">
+                                        <rect key="frame" x="252" y="362.5" width="96" height="26.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -66,14 +66,14 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="milage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnY-0W-lOM">
-                                        <rect key="frame" x="245" y="403" width="110.5" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="milage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnY-0W-lOM">
+                                        <rect key="frame" x="266.5" y="420" width="67.5" height="26.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="VGX-JE-J4c" firstAttribute="top" secondItem="vnY-0W-lOM" secondAttribute="bottom" constant="-3" id="0Wp-NP-B9R"/>
+                                    <constraint firstItem="VGX-JE-J4c" firstAttribute="top" secondItem="vnY-0W-lOM" secondAttribute="bottom" constant="8" symbolic="YES" id="0Wp-NP-B9R"/>
                                     <constraint firstItem="vnY-0W-lOM" firstAttribute="top" secondItem="ilM-4g-LEj" secondAttribute="bottom" constant="31" id="1EG-lc-Twb"/>
                                     <constraint firstAttribute="centerX" secondItem="XDG-nc-dij" secondAttribute="centerX" id="21K-yv-hdm"/>
                                     <constraint firstAttribute="trailing" secondItem="VGX-JE-J4c" secondAttribute="trailing" constant="125" id="2jz-rg-Sak"/>
@@ -85,7 +85,7 @@
                                     <constraint firstAttribute="centerX" secondItem="vnY-0W-lOM" secondAttribute="centerX" id="AWC-uR-y2D"/>
                                     <constraint firstItem="dSo-XQ-Ane" firstAttribute="leading" secondItem="DgO-y3-tK5" secondAttribute="leading" constant="61" id="BXz-Qd-AZ2"/>
                                     <constraint firstAttribute="trailing" secondItem="vnY-0W-lOM" secondAttribute="trailing" constant="50" id="Bjo-eb-6Le"/>
-                                    <constraint firstItem="ZWW-xr-en7" firstAttribute="top" secondItem="ilM-4g-LEj" secondAttribute="bottom" constant="-3" id="Db2-kp-R5Q"/>
+                                    <constraint firstItem="ZWW-xr-en7" firstAttribute="top" secondItem="ilM-4g-LEj" secondAttribute="bottom" constant="8" symbolic="YES" id="Db2-kp-R5Q"/>
                                     <constraint firstItem="vnY-0W-lOM" firstAttribute="top" secondItem="XDG-nc-dij" secondAttribute="bottom" constant="46" id="Gqs-rA-9mM"/>
                                     <constraint firstItem="ZWW-xr-en7" firstAttribute="leading" secondItem="ilM-4g-LEj" secondAttribute="leading" id="JH1-Ve-1V0"/>
                                     <constraint firstAttribute="centerX" secondItem="yYY-Dl-mbI" secondAttribute="centerX" id="Kcb-Rd-thI"/>
@@ -102,7 +102,7 @@
                                     <constraint firstAttribute="centerX" secondItem="cYM-E6-ezG" secondAttribute="centerX" id="wMC-GA-pz0"/>
                                     <constraint firstAttribute="centerX" secondItem="rZL-4P-oLo" secondAttribute="centerX" id="wb3-l0-Txl"/>
                                     <constraint firstAttribute="centerX" secondItem="ilM-4g-LEj" secondAttribute="centerX" id="wyg-p6-TTz"/>
-                                    <constraint firstItem="dSo-XQ-Ane" firstAttribute="top" secondItem="cYM-E6-ezG" secondAttribute="bottom" constant="-3" id="yGe-l7-yKd"/>
+                                    <constraint firstItem="dSo-XQ-Ane" firstAttribute="top" secondItem="cYM-E6-ezG" secondAttribute="bottom" constant="8" symbolic="YES" id="yGe-l7-yKd"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">

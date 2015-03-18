@@ -1,11 +1,11 @@
 PODS:
   - Alamofire (1.1.4)
-  - SVWebViewController (HEAD based on 1.0)
+  - SVWebViewController (1.0)
   - SwiftyJSON (2.1.3)
 
 DEPENDENCIES:
   - Alamofire (~> 1.1)
-  - SVWebViewController (HEAD)
+  - SVWebViewController
   - SwiftyJSON (~> 2.1.3)
 
 SPEC CHECKSUMS:
