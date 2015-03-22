@@ -1,5 +1,4 @@
 import UIKit
-import SVWebViewController
 
 class DetailsViewController: UIViewController {
     
@@ -11,21 +10,33 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var carModel: UILabel!
     @IBOutlet weak var milage: UILabel!
     
-    @IBAction func showDetails(sender: AnyObject) {
-        let detailsUrl = beaconData?.detailsUrl
-        let webViewController = SVModalWebViewController(URL: detailsUrl)
-        self.presentViewController(webViewController, animated: true, completion: nil)
-    }
-    
     @IBOutlet weak var detailedView: UIView! {
         didSet {
             beaconManager.detailsView = self
         }
     }
-        
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let ddcv = segue.destinationViewController as? CarDetailsViewController {
+            if let identifier = segue.identifier {
+                switch identifier {
+                    case "ShowCarDetails":
+                        ddcv.url = beaconData?.detailsUrl
+                default: break
+                }
+            }
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()        
+        self.title = "Szczegóły"
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         initializeUI()
+        beaconManager.stopMonitoring()
     }
     
     func initializeUI() {
@@ -47,7 +58,6 @@ class DetailsViewController: UIViewController {
     }
     
     func noSignal() {
-        println("No signal view...")
         performSegueWithIdentifier("showNoSignal", sender: self)
     }
 }
