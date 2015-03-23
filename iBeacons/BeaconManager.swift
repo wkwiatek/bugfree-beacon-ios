@@ -5,7 +5,7 @@ import SwiftyJSON
 extension CLBeacon: Equatable {}
 
 public func ==(lhs: CLBeacon, rhs: CLBeacon) -> Bool {
-    return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.proximityUUID == rhs.proximityUUID
+    return lhs.major? == rhs.major? && lhs.minor? == rhs.minor? && lhs.proximityUUID? == rhs.proximityUUID?
 }
 
 struct BeaconData {
@@ -30,6 +30,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
 
     var beaconsInRange = [CLBeacon]();
     var beaconsInRangeSorted = [AnyObject]();
+    var closestBeacon = CLBeacon();
     
     var noSignalView: NoSignalViewController?
     var detailsView: DetailsViewController?
@@ -104,8 +105,11 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         if (knownBeacons.count > 0) {
             let beacon = knownBeacons[0] as CLBeacon;
             
-            if(!contains(beaconsInRange, beacon)) {
-                beaconsInRange.append(beacon);
+            if (closestBeacon == beacon) {
+                println("it's the same beacon in range")
+            }
+            else {
+                closestBeacon = beacon
                 collectData(beacon)
             }
         } else {

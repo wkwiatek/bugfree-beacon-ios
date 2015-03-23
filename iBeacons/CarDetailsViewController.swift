@@ -3,6 +3,7 @@ import UIKit
 class CarDetailsViewController: UIViewController {
     
     var url: NSURL?
+    let beaconManager = BeaconManager.sharedInstance
     
     @IBOutlet weak var webView: UIWebView!
     
@@ -17,6 +18,14 @@ class CarDetailsViewController: UIViewController {
             let request = NSURLRequest(URL: detailsUrl)
             webView.loadRequest(request)
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        beaconManager.stopMonitoring()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        beaconManager.startMonitoring()
     }
 
 }
