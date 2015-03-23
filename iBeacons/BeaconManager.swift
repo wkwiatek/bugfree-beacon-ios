@@ -93,24 +93,23 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didExitRegion region: CLBeaconRegion!) {
         println("Beacon left region");
         removeBeaconsInRangeFromMemory()
-        detailsView?.noSignal()
     }
     
     func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject], inRegion region: CLBeaconRegion!) {
-        println("Ranged beacons: \(beacons)");
-
-        let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
-        beaconsInRangeSorted = beacons;
         
+        let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
+
+        println("Ranged beacons(\(beacons.count)): \(beacons)");
+
         if (knownBeacons.count > 0) {
-            for object in knownBeacons {
-                let beacon = object as CLBeacon;
-                
-                if(!contains(beaconsInRange, beacon)) {
-                    beaconsInRange.append(beacon);
-                    collectData(beacon)
-                }
+            let beacon = knownBeacons[0] as CLBeacon;
+            
+            if(!contains(beaconsInRange, beacon)) {
+                beaconsInRange.append(beacon);
+                collectData(beacon)
             }
+        } else {
+            removeBeaconsInRangeFromMemory()
         }
     }
 }
