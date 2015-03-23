@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KOT-ju-U4M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vfd-QI-m4F">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-y3-tK5" userLabel="BeaconDataView">
@@ -26,7 +26,7 @@
                                             <color key="titleShadowColor" red="0.0" green="1" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="showDetails:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Lw-Mc-vWR"/>
+                                            <segue destination="zxK-g1-0TV" kind="show" identifier="ShowCarDetails" id="2Ct-ky-8uz"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XDG-nc-dij">
@@ -37,7 +37,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marka" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSo-XQ-Ane">
-                                        <rect key="frame" x="288" y="339.5" width="25.5" height="12"/>
+                                        <rect key="frame" x="288" y="339" width="25.5" height="12"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="10"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -47,7 +47,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Przebieg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGX-JE-J4c">
-                                        <rect key="frame" x="282" y="454.5" width="36" height="12"/>
+                                        <rect key="frame" x="282" y="454" width="36" height="12"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="10"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -57,7 +57,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="carModel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-4g-LEj">
-                                        <rect key="frame" x="252" y="362.5" width="96" height="26.5"/>
+                                        <rect key="frame" x="252" y="362" width="96" height="26.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -67,7 +67,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="milage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnY-0W-lOM">
-                                        <rect key="frame" x="266.5" y="420" width="67.5" height="26.5"/>
+                                        <rect key="frame" x="266" y="420" width="67.5" height="26.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -111,12 +111,12 @@
                                         <exclude reference="508-Ov-uqZ"/>
                                         <exclude reference="BXz-Qd-AZ2"/>
                                         <exclude reference="XCQ-6E-2Oj"/>
+                                        <exclude reference="JH1-Ve-1V0"/>
+                                        <exclude reference="PCO-ig-TxH"/>
                                         <exclude reference="1EG-lc-Twb"/>
                                         <exclude reference="Bjo-eb-6Le"/>
                                         <exclude reference="Gqs-rA-9mM"/>
                                         <exclude reference="Zx4-3c-dAf"/>
-                                        <exclude reference="JH1-Ve-1V0"/>
-                                        <exclude reference="PCO-ig-TxH"/>
                                         <exclude reference="2jz-rg-Sak"/>
                                     </mask>
                                 </variation>
@@ -136,12 +136,11 @@
                         <outlet property="detailedView" destination="DgO-y3-tK5" id="uv6-vE-paa"/>
                         <outlet property="mainImage" destination="XDG-nc-dij" id="2oa-Db-p2d"/>
                         <outlet property="milage" destination="vnY-0W-lOM" id="ZOg-QD-7Ge"/>
-                        <segue destination="KOT-ju-U4M" kind="presentation" identifier="showNoSignal" id="M4q-AV-Pgc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="2"/>
+            <point key="canvasLocation" x="1477" y="2"/>
         </scene>
         <!--No Signal View Controller-->
         <scene sceneID="QVa-06-4mt">
@@ -152,35 +151,51 @@
                         <viewControllerLayoutGuide type="bottom" id="qKj-vK-kaC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zGx-bH-NVR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PH2-tR-jrL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beacon" translatesAutoresizingMaskIntoConstraints="NO" id="AgV-c0-NbA">
-                                        <rect key="frame" x="172" y="172" width="256" height="256"/>
+                                        <rect key="frame" x="175" y="225" width="250" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="Whu-Wn-o43"/>
+                                            <constraint firstAttribute="height" constant="150" id="tWS-Cf-oWi"/>
+                                        </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brak sygnału" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4Y-yR-wPM">
-                                        <rect key="frame" x="255" y="468" width="90.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podejdź do samochodu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4Y-yR-wPM">
+                                        <rect key="frame" x="215" y="415" width="169" height="20.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beacon app" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgB-lG-hh8">
-                                        <rect key="frame" x="238.5" y="88.5" width="123" height="28.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SuperCar Logo" translatesAutoresizingMaskIntoConstraints="NO" id="10Y-ll-bJ2">
+                                        <rect key="frame" x="100" y="70" width="400" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Gxo-uL-MUF"/>
+                                            <constraint firstAttribute="width" constant="400" id="s24-yd-bZx"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="AgV-c0-NbA" firstAttribute="top" secondItem="qgB-lG-hh8" secondAttribute="bottom" constant="55" id="9Ne-RS-Jju"/>
-                                    <constraint firstAttribute="centerX" secondItem="qgB-lG-hh8" secondAttribute="centerX" id="NK2-Yn-RgB"/>
+                                    <constraint firstItem="AgV-c0-NbA" firstAttribute="top" secondItem="10Y-ll-bJ2" secondAttribute="bottom" constant="3" id="Jx2-oV-TY6"/>
                                     <constraint firstItem="c4Y-yR-wPM" firstAttribute="top" secondItem="AgV-c0-NbA" secondAttribute="bottom" constant="40" id="Ntq-xQ-2vC"/>
+                                    <constraint firstAttribute="centerX" secondItem="10Y-ll-bJ2" secondAttribute="centerX" id="Uhr-6w-PTI"/>
                                     <constraint firstAttribute="centerX" secondItem="c4Y-yR-wPM" secondAttribute="centerX" id="ZAE-F3-xvV"/>
+                                    <constraint firstItem="10Y-ll-bJ2" firstAttribute="top" secondItem="PH2-tR-jrL" secondAttribute="top" constant="140" id="aoh-E7-vhZ"/>
                                     <constraint firstAttribute="centerX" secondItem="AgV-c0-NbA" secondAttribute="centerX" id="doO-Nl-UYZ"/>
                                     <constraint firstAttribute="centerY" secondItem="AgV-c0-NbA" secondAttribute="centerY" id="jYZ-ym-tag"/>
+                                    <constraint firstItem="10Y-ll-bJ2" firstAttribute="top" secondItem="PH2-tR-jrL" secondAttribute="top" constant="70" id="wde-sk-oA8"/>
+                                    <constraint firstAttribute="centerY" secondItem="10Y-ll-bJ2" secondAttribute="centerY" id="xa7-Lf-e9w"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aoh-E7-vhZ"/>
+                                        <exclude reference="xa7-Lf-e9w"/>
+                                        <exclude reference="Jx2-oV-TY6"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -191,17 +206,70 @@
                             <constraint firstAttribute="trailing" secondItem="PH2-tR-jrL" secondAttribute="trailing" id="SA8-vn-rlc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ewI-b9-tQf"/>
                     <connections>
                         <outlet property="noSignalView" destination="PH2-tR-jrL" id="AyI-jP-3zS"/>
-                        <segue destination="vXZ-lx-hvc" kind="presentation" identifier="ShowDetails" id="Up7-vl-o3U"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="ShowDetails" id="Up7-vl-o3U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gon-Bn-s98" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="732" y="2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LkE-NX-kGg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vfd-QI-m4F" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xdt-rh-MYp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KOT-ju-U4M" kind="relationship" relationship="rootViewController" id="0qp-3c-pGC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwe-Za-833" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-80" y="2"/>
+        </scene>
+        <!--Car Details View Controller-->
+        <scene sceneID="mvq-Ba-gGF">
+            <objects>
+                <viewController id="zxK-g1-0TV" customClass="CarDetailsViewController" customModule="iBeacons" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TuS-dl-PYq"/>
+                        <viewControllerLayoutGuide type="bottom" id="hpY-8x-4VJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFit" id="JZG-MT-SeP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ki5-6e-7kO">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ki5-6e-7kO" firstAttribute="bottom" secondItem="hpY-8x-4VJ" secondAttribute="top" id="2JH-9R-jFj"/>
+                            <constraint firstAttribute="trailing" secondItem="Ki5-6e-7kO" secondAttribute="trailing" id="4VG-d7-IRW"/>
+                            <constraint firstItem="Ki5-6e-7kO" firstAttribute="top" secondItem="TuS-dl-PYq" secondAttribute="bottom" id="ZXa-Rj-U5q"/>
+                            <constraint firstItem="Ki5-6e-7kO" firstAttribute="leading" secondItem="JZG-MT-SeP" secondAttribute="leading" id="xi3-8T-HAz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Ki5-6e-7kO" id="ylb-DQ-iZo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xr5-Jc-dRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2174" y="2"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Beacon" width="256" height="256"/>
+        <image name="Beacon" width="600" height="400"/>
+        <image name="SuperCar Logo" width="1491" height="534"/>
     </resources>
 </document>

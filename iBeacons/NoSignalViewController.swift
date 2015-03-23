@@ -6,22 +6,21 @@ class NoSignalViewController: UIViewController {
     var newBeacon: BeaconData?
     
     @IBOutlet weak var noSignalView: UIView! {
-        didSet {
-            beaconManager.noSignalView = self
-        }
+        didSet { beaconManager.noSignalView = self }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        beaconManager.startMonitoring()
+        self.title = "Wyszukiwanie"
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        beaconManager.removeBeaconsInRangeFromMemory()
+        beaconManager.startMonitoring()
     }
     
     func presentDetails(beaconData: BeaconData) {
-        println("Processing to details view")
         newBeacon = beaconData
         performSegueWithIdentifier("ShowDetails", sender: self)
     }
