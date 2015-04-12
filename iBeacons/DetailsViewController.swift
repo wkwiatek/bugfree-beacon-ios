@@ -36,6 +36,7 @@ class DetailsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         initializeUI()
+        beaconManager.stopMonitoring()
     }
     
     func initializeUI() {

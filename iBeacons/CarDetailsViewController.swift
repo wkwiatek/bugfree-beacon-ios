@@ -19,13 +19,4 @@ class CarDetailsViewController: UIViewController {
             webView.loadRequest(request)
         }
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        beaconManager.stopMonitoring()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        beaconManager.startMonitoring()
-    }
-
 }
