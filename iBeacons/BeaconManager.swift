@@ -5,7 +5,11 @@ import SwiftyJSON
 extension CLBeacon: Equatable {}
 
 public func ==(lhs: CLBeacon, rhs: CLBeacon) -> Bool {
-    return lhs.major? == rhs.major? && lhs.minor? == rhs.minor? && lhs.proximityUUID? == rhs.proximityUUID?
+    if lhs.major == nil || lhs.minor == nil  || lhs.proximityUUID == nil || rhs.major == nil || rhs.minor == nil  || rhs.proximityUUID == nil {
+        return false
+    }
+    
+    return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.proximityUUID == rhs.proximityUUID
 }
 
 struct BeaconData {
@@ -62,7 +66,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     }
     
     func collectData(beacon: AnyObject) {
-        var beacon = beacon as CLBeacon;
+        var beacon = beacon as! CLBeacon;
         var bData = BeaconData(beacon: beacon)
 
         server.findBeacon(uuid, major: beacon.major.integerValue, minor: beacon.minor.integerValue) { response in
@@ -79,11 +83,11 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLBeaconRegion!) {
+    func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
         println("ESTBeaconManagerDelegate staring monitoring for region: \(region.identifier)");
     }
     
-    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLBeaconRegion!) {
+    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
         println("Beacon entered region");
     }
     
@@ -91,7 +95,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         beaconsInRange.removeAll();
     }
     
-    func locationManager(manager: CLLocationManager!, didExitRegion region: CLBeaconRegion!) {
+    func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
         println("Beacon left region");
         removeBeaconsInRangeFromMemory()
     }
@@ -103,15 +107,17 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         println("Ranged beacons(\(beacons.count)): \(beacons)");
 
         if (knownBeacons.count > 0) {
-            let beacon = knownBeacons[0] as CLBeacon;
             
-            if (closestBeacon == beacon) {
-                println("it's the same beacon in range")
+            if let beacon = knownBeacons[0] as? CLBeacon {
+
+                if (closestBeacon == beacon) {
+                    println("it's the same beacon in range")
+                } else {
+                    closestBeacon = beacon
+                    collectData(beacon)
+                }
             }
-            else {
-                closestBeacon = beacon
-                collectData(beacon)
-            }
+
         } else {
             removeBeaconsInRangeFromMemory()
         }
