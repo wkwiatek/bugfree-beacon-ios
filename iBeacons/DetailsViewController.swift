@@ -6,9 +6,6 @@ class DetailsViewController: UIViewController {
     var beaconData: BeaconData?
     
     @IBOutlet weak var mainImage: UIImageView!
-    @IBOutlet weak var carMake: UILabel!
-    @IBOutlet weak var carModel: UILabel!
-    @IBOutlet weak var milage: UILabel!
     
     @IBOutlet weak var detailedView: UIView! {
         didSet {
@@ -17,10 +14,10 @@ class DetailsViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let ddcv = segue.destinationViewController as? CarDetailsViewController {
+        if let ddcv = segue.destinationViewController as? UrlDetailsViewController {
             if let identifier = segue.identifier {
                 switch identifier {
-                    case "ShowCarDetails":
+                    case "ShowUrlDetails":
                         ddcv.url = beaconData?.detailsUrl
                 default: break
                 }
@@ -51,9 +48,7 @@ class DetailsViewController: UIViewController {
             mainImage.layer.borderColor = UIColor.blackColor().CGColor
             mainImage.clipsToBounds = true
             
-            carMake.text = beaconData!.carMake
-            carModel.text = beaconData!.carModel
-            milage.text = beaconData!.milage
+            // Initialize texts here
         }
     }
     

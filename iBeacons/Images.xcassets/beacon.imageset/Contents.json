@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "supercar-logo.jpg"
+      "filename" : "beacon.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "supercar-logo-1.jpg"
+      "filename" : "beacon-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "supercar-logo-2.jpg"
+      "filename" : "beacon-2.png"
     }
   ],
   "info" : {

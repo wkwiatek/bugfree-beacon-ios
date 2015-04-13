@@ -14,10 +14,17 @@ public func ==(lhs: CLBeacon, rhs: CLBeacon) -> Bool {
 
 struct BeaconData {
     let beacon: CLBeacon
-    var name: String?
-    var carMake: String?
-    var carModel: String?
-    var milage: String?
+    
+    var title: String?
+    var subtitle: String?
+    var content: String?
+    
+    var template: String?
+    var titleColor: String?
+    var subtitleColor: String?
+    var contentColor: String?
+    var backgroundColor: String?
+    
     var imageUrl: NSURL?
     var detailsUrl: NSURL?
     
@@ -72,10 +79,16 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         server.findBeacon(uuid, major: beacon.major.integerValue, minor: beacon.minor.integerValue) { response in
             let json = JSON(response.response!)
             
-            bData.name = json[0]["data"]["name"].string
-            bData.carMake = json[0]["data"]["carMake"].string
-            bData.carModel = json[0]["data"]["carModel"].string
-            bData.milage = json[0]["data"]["milage"].string
+            bData.title = json[0]["data"]["title"].string
+            bData.subtitle = json[0]["data"]["subtitle"].string
+            bData.content = json[0]["data"]["content"].string
+            
+            bData.template = json[0]["template"]["type"].string
+            bData.titleColor = json[0]["template"]["titleColor"].string
+            bData.subtitleColor = json[0]["template"]["subtitleColor"].string
+            bData.contentColor = json[0]["template"]["contentColor"].string
+            bData.backgroundColor = json[0]["template"]["backgroundColor"].string
+
             bData.imageUrl = NSURL(string: json[0]["data"]["imageUrl"].string!)
             bData.detailsUrl = NSURL(string: json[0]["data"]["detailsUrl"].string!)
             
