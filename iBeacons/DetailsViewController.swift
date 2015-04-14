@@ -13,6 +13,11 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var moreInfoBtn: UIButton!
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let ddcv = segue.destinationViewController as? UrlDetailsViewController {
             if let identifier = segue.identifier {
@@ -47,6 +52,11 @@ class DetailsViewController: UIViewController {
             mainImage.layer.borderWidth = 2.0
             mainImage.layer.borderColor = UIColor.blackColor().CGColor
             mainImage.clipsToBounds = true
+            
+            titleLabel.textColor = Utils.colorWithHexString(beaconData!.titleColor!)
+            subtitleLabel.textColor = Utils.colorWithHexString(beaconData!.subtitleColor!)
+            contentLabel.textColor = Utils.colorWithHexString(beaconData!.contentColor!)
+            self.view.backgroundColor = Utils.colorWithHexString(beaconData!.backgroundColor!)
             
             // Initialize texts here
         }
