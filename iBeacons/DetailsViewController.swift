@@ -53,12 +53,16 @@ class DetailsViewController: UIViewController {
             mainImage.layer.borderColor = UIColor.blackColor().CGColor
             mainImage.clipsToBounds = true
             
+            titleLabel.text = beaconData?.title
             titleLabel.textColor = Utils.colorWithHexString(beaconData!.titleColor!)
-            subtitleLabel.textColor = Utils.colorWithHexString(beaconData!.subtitleColor!)
-            contentLabel.textColor = Utils.colorWithHexString(beaconData!.contentColor!)
-            self.view.backgroundColor = Utils.colorWithHexString(beaconData!.backgroundColor!)
             
-            // Initialize texts here
+            subtitleLabel.textColor = Utils.colorWithHexString(beaconData!.subtitleColor!)
+            subtitleLabel.text = beaconData?.subtitle
+            
+            contentLabel.textColor = Utils.colorWithHexString(beaconData!.contentColor!)
+            contentLabel.text = beaconData?.content
+            
+            self.view.backgroundColor = Utils.colorWithHexString(beaconData!.backgroundColor!)
         }
     }
     
