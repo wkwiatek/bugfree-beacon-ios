@@ -37,18 +37,26 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMS-zq-IVp">
-                                <rect key="frame" x="31" y="351" width="47" height="30"/>
+                                <rect key="frame" x="31" y="289" width="47" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egp-rD-2CZ">
-                                <rect key="frame" x="31" y="396" width="62" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egp-rD-2CZ">
+                                <rect key="frame" x="31" y="324" width="100" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="uKe-tL-sNu"/>
+                                    <constraint firstAttribute="height" constant="45" id="ui0-zg-Nbd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGk-9p-c6X">
-                                <rect key="frame" x="293" y="374" width="57" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGk-9p-c6X">
+                                <rect key="frame" x="384" y="374" width="200" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="QSw-SK-CYB"/>
+                                    <constraint firstAttribute="width" constant="200" id="SAS-Vx-HUN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -59,21 +67,27 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rGk-9p-c6X" secondAttribute="trailing" constant="100" id="6aT-Lb-E4U"/>
                             <constraint firstItem="rGk-9p-c6X" firstAttribute="top" secondItem="aoI-SA-PX4" secondAttribute="bottom" constant="110" id="ALW-Bb-8oD"/>
                             <constraint firstItem="aoI-SA-PX4" firstAttribute="leading" secondItem="Mpc-CI-WWF" secondAttribute="leadingMargin" id="CPF-9e-Gjs"/>
+                            <constraint firstItem="egp-rD-2CZ" firstAttribute="top" secondItem="iMS-zq-IVp" secondAttribute="bottom" constant="5" id="NN6-ks-9m1"/>
                             <constraint firstItem="egp-rD-2CZ" firstAttribute="leading" secondItem="iMS-zq-IVp" secondAttribute="leading" id="PBO-Nj-xK0"/>
                             <constraint firstItem="aoI-SA-PX4" firstAttribute="width" secondItem="Mpc-CI-WWF" secondAttribute="width" id="Rcf-Sp-aY2"/>
                             <constraint firstItem="vPX-na-TcW" firstAttribute="top" secondItem="3BZ-Ty-nvC" secondAttribute="bottom" constant="32" id="VJd-hl-Kga"/>
                             <constraint firstItem="iMS-zq-IVp" firstAttribute="leading" secondItem="Mpc-CI-WWF" secondAttribute="leadingMargin" constant="15" id="Ze0-LA-g0X"/>
                             <constraint firstItem="rGk-9p-c6X" firstAttribute="leading" relation="lessThanOrEqual" secondItem="egp-rD-2CZ" secondAttribute="trailing" constant="200" id="aXy-G1-QTV"/>
-                            <constraint firstItem="iMS-zq-IVp" firstAttribute="top" secondItem="aoI-SA-PX4" secondAttribute="bottom" constant="87" id="bCq-LF-U8Q"/>
+                            <constraint firstItem="iMS-zq-IVp" firstAttribute="top" secondItem="aoI-SA-PX4" secondAttribute="bottom" constant="25" id="bCq-LF-U8Q"/>
                             <constraint firstAttribute="centerX" secondItem="aoI-SA-PX4" secondAttribute="centerX" id="fPn-6e-HmP"/>
-                            <constraint firstItem="egp-rD-2CZ" firstAttribute="top" secondItem="iMS-zq-IVp" secondAttribute="bottom" constant="15" id="iE8-Ed-UCx"/>
+                            <constraint firstItem="egp-rD-2CZ" firstAttribute="top" secondItem="iMS-zq-IVp" secondAttribute="bottom" constant="5" id="iE8-Ed-UCx"/>
                             <constraint firstItem="aoI-SA-PX4" firstAttribute="top" secondItem="UqU-6q-Aiq" secondAttribute="bottom" id="jDk-WN-cfM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rGk-9p-c6X" secondAttribute="trailing" id="r6w-xh-0mA"/>
+                            <constraint firstItem="egp-rD-2CZ" firstAttribute="top" secondItem="rGk-9p-c6X" secondAttribute="top" constant="-60" id="s9a-UB-xQp"/>
                             <constraint firstAttribute="centerX" secondItem="3BZ-Ty-nvC" secondAttribute="centerX" id="xJV-QZ-Dlw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="CPF-9e-Gjs"/>
+                                <exclude reference="iE8-Ed-UCx"/>
+                                <exclude reference="s9a-UB-xQp"/>
                                 <exclude reference="6aT-Lb-E4U"/>
+                                <exclude reference="aXy-G1-QTV"/>
                             </mask>
                         </variation>
                     </view>
@@ -414,6 +428,6 @@
         <image name="Beacon" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dh3-2n-tdY"/>
+        <segue reference="kTh-dg-2Zl"/>
     </inferredMetricsTieBreakers>
 </document>
