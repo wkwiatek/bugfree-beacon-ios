@@ -115,12 +115,9 @@
 		1A85FA681AE39710006ECA6C /* iAdmin */ = {
 			isa = PBXGroup;
 			children = (
-				1A85FA6B1AE39710006ECA6C /* AppDelegate.swift */,
 				1A85FA6D1AE39710006ECA6C /* MasterViewController.swift */,
 				1A85FA6F1AE39710006ECA6C /* DetailViewController.swift */,
 				1A85FA711AE39710006ECA6C /* Main.storyboard */,
-				1A85FA741AE39710006ECA6C /* Images.xcassets */,
-				1A85FA761AE39710006ECA6C /* LaunchScreen.xib */,
 				1A85FA691AE39710006ECA6C /* Supporting Files */,
 			);
 			path = iAdmin;
@@ -129,6 +126,9 @@
 		1A85FA691AE39710006ECA6C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1A85FA741AE39710006ECA6C /* Images.xcassets */,
+				1A85FA761AE39710006ECA6C /* LaunchScreen.xib */,
+				1A85FA6B1AE39710006ECA6C /* AppDelegate.swift */,
 				1A85FA6A1AE39710006ECA6C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -758,6 +758,7 @@
 				1A85FA861AE39710006ECA6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A85FA8A1AE39710006ECA6C /* Build configuration list for PBXNativeTarget "iAdminTests" */ = {
 			isa = XCConfigurationList;
@@ -766,6 +767,7 @@
 				1A85FA881AE39710006ECA6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7CE3F2461A8AABA900B062E1 /* Build configuration list for PBXProject "iBeacons" */ = {
 			isa = XCConfigurationList;

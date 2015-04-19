@@ -48,11 +48,25 @@ class DetailsViewController: UIViewController {
             mainImage.image = UIImage(data: imageData!)
             mainImage.contentMode = .ScaleAspectFill
             
-            mainImage.layer.cornerRadius = mainImage.frame.size.width / 2
             mainImage.layer.borderWidth = 2.0
             mainImage.layer.borderColor = UIColor.blackColor().CGColor
             mainImage.clipsToBounds = true
             
+            switch beaconData!.template! {
+            case "ROUNDED_IMAGE":
+                println("Adjusting things for template ROUNDED_IMAGE")
+                mainImage.layer.cornerRadius = mainImage.frame.size.width / 2
+                break
+            case "SQUARED_IMAGE":
+                println("Adjusting things for template SQUARED_IMAGE")
+                break
+            case "SQUARED_IMAGE_ALIGN_LEFT":
+                println("Adjusting things for template SQUARED_IMAGE_ALIGN_LEFT")
+                break
+            default:
+                break
+            }
+        
             titleLabel.text = beaconData?.title
             titleLabel.textColor = Utils.colorWithHexString(beaconData!.titleColor!)
             
