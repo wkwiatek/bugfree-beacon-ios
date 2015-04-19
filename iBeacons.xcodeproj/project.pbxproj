@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A85FA6C1AE39710006ECA6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85FA6B1AE39710006ECA6C /* AppDelegate.swift */; };
+		1A85FA6E1AE39710006ECA6C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85FA6D1AE39710006ECA6C /* MasterViewController.swift */; };
+		1A85FA701AE39710006ECA6C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85FA6F1AE39710006ECA6C /* DetailViewController.swift */; };
+		1A85FA731AE39710006ECA6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A85FA711AE39710006ECA6C /* Main.storyboard */; };
+		1A85FA751AE39710006ECA6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A85FA741AE39710006ECA6C /* Images.xcassets */; };
+		1A85FA781AE39710006ECA6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A85FA761AE39710006ECA6C /* LaunchScreen.xib */; };
+		1A85FA841AE39710006ECA6C /* iAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85FA831AE39710006ECA6C /* iAdminTests.swift */; };
 		7CE3F2511A8AABA900B062E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F2501A8AABA900B062E1 /* AppDelegate.swift */; };
 		7CE3F2531A8AABA900B062E1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F2521A8AABA900B062E1 /* DetailsViewController.swift */; };
 		7CE3F2561A8AABA900B062E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3F2541A8AABA900B062E1 /* Main.storyboard */; };
@@ -23,6 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A85FA7E1AE39710006ECA6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CE3F2431A8AABA900B062E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A85FA661AE39710006ECA6C;
+			remoteInfo = iAdmin;
+		};
 		7CE3F2611A8AABA900B062E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7CE3F2431A8AABA900B062E1 /* Project object */;
@@ -34,6 +48,17 @@
 
 /* Begin PBXFileReference section */
 		099D27526693DBED581D63FF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		1A85FA671AE39710006ECA6C /* iAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A85FA6A1AE39710006ECA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A85FA6B1AE39710006ECA6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A85FA6D1AE39710006ECA6C /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		1A85FA6F1AE39710006ECA6C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1A85FA721AE39710006ECA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1A85FA741AE39710006ECA6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1A85FA771AE39710006ECA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1A85FA7D1AE39710006ECA6C /* iAdminTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAdminTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A85FA821AE39710006ECA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A85FA831AE39710006ECA6C /* iAdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAdminTests.swift; sourceTree = "<group>"; };
 		7CE3F24B1A8AABA900B062E1 /* iBeacons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeacons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE3F24F1A8AABA900B062E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE3F2501A8AABA900B062E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +80,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1A85FA641AE39710006ECA6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A85FA7A1AE39710006ECA6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7CE3F2481A8AABA900B062E1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,12 +112,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A85FA681AE39710006ECA6C /* iAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				1A85FA6B1AE39710006ECA6C /* AppDelegate.swift */,
+				1A85FA6D1AE39710006ECA6C /* MasterViewController.swift */,
+				1A85FA6F1AE39710006ECA6C /* DetailViewController.swift */,
+				1A85FA711AE39710006ECA6C /* Main.storyboard */,
+				1A85FA741AE39710006ECA6C /* Images.xcassets */,
+				1A85FA761AE39710006ECA6C /* LaunchScreen.xib */,
+				1A85FA691AE39710006ECA6C /* Supporting Files */,
+			);
+			path = iAdmin;
+			sourceTree = "<group>";
+		};
+		1A85FA691AE39710006ECA6C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A85FA6A1AE39710006ECA6C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A85FA801AE39710006ECA6C /* iAdminTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A85FA831AE39710006ECA6C /* iAdminTests.swift */,
+				1A85FA811AE39710006ECA6C /* Supporting Files */,
+			);
+			path = iAdminTests;
+			sourceTree = "<group>";
+		};
+		1A85FA811AE39710006ECA6C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A85FA821AE39710006ECA6C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		7CE3F2421A8AABA900B062E1 = {
 			isa = PBXGroup;
 			children = (
 				7CE3F2701A8AAC8400B062E1 /* Podfile */,
 				7CE3F24D1A8AABA900B062E1 /* iBeacons */,
 				7CE3F2631A8AABA900B062E1 /* iBeaconsTests */,
+				1A85FA681AE39710006ECA6C /* iAdmin */,
+				1A85FA801AE39710006ECA6C /* iAdminTests */,
 				7CE3F24C1A8AABA900B062E1 /* Products */,
 				94ECF2BB35DB98AE818B506E /* Pods */,
 				8EA53603DBC6F2D81A770CFE /* Frameworks */,
@@ -90,6 +170,8 @@
 			children = (
 				7CE3F24B1A8AABA900B062E1 /* iBeacons.app */,
 				7CE3F2601A8AABA900B062E1 /* iBeaconsTests.xctest */,
+				1A85FA671AE39710006ECA6C /* iAdmin.app */,
+				1A85FA7D1AE39710006ECA6C /* iAdminTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +239,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1A85FA661AE39710006ECA6C /* iAdmin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A85FA891AE39710006ECA6C /* Build configuration list for PBXNativeTarget "iAdmin" */;
+			buildPhases = (
+				1A85FA631AE39710006ECA6C /* Sources */,
+				1A85FA641AE39710006ECA6C /* Frameworks */,
+				1A85FA651AE39710006ECA6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iAdmin;
+			productName = iAdmin;
+			productReference = 1A85FA671AE39710006ECA6C /* iAdmin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A85FA7C1AE39710006ECA6C /* iAdminTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A85FA8A1AE39710006ECA6C /* Build configuration list for PBXNativeTarget "iAdminTests" */;
+			buildPhases = (
+				1A85FA791AE39710006ECA6C /* Sources */,
+				1A85FA7A1AE39710006ECA6C /* Frameworks */,
+				1A85FA7B1AE39710006ECA6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A85FA7F1AE39710006ECA6C /* PBXTargetDependency */,
+			);
+			name = iAdminTests;
+			productName = iAdminTests;
+			productReference = 1A85FA7D1AE39710006ECA6C /* iAdminTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7CE3F24A1A8AABA900B062E1 /* iBeacons */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CE3F26A1A8AABA900B062E1 /* Build configuration list for PBXNativeTarget "iBeacons" */;
@@ -204,6 +321,13 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Wojciech Kwiatek";
 				TargetAttributes = {
+					1A85FA661AE39710006ECA6C = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					1A85FA7C1AE39710006ECA6C = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 1A85FA661AE39710006ECA6C;
+					};
 					7CE3F24A1A8AABA900B062E1 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 8C3MRTNM83;
@@ -229,11 +353,30 @@
 			targets = (
 				7CE3F24A1A8AABA900B062E1 /* iBeacons */,
 				7CE3F25F1A8AABA900B062E1 /* iBeaconsTests */,
+				1A85FA661AE39710006ECA6C /* iAdmin */,
+				1A85FA7C1AE39710006ECA6C /* iAdminTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1A85FA651AE39710006ECA6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A85FA731AE39710006ECA6C /* Main.storyboard in Resources */,
+				1A85FA781AE39710006ECA6C /* LaunchScreen.xib in Resources */,
+				1A85FA751AE39710006ECA6C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A85FA7B1AE39710006ECA6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7CE3F2491A8AABA900B062E1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,6 +446,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1A85FA631AE39710006ECA6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A85FA701AE39710006ECA6C /* DetailViewController.swift in Sources */,
+				1A85FA6E1AE39710006ECA6C /* MasterViewController.swift in Sources */,
+				1A85FA6C1AE39710006ECA6C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A85FA791AE39710006ECA6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A85FA841AE39710006ECA6C /* iAdminTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7CE3F2471A8AABA900B062E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -328,6 +489,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1A85FA7F1AE39710006ECA6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A85FA661AE39710006ECA6C /* iAdmin */;
+			targetProxy = 1A85FA7E1AE39710006ECA6C /* PBXContainerItemProxy */;
+		};
 		7CE3F2621A8AABA900B062E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7CE3F24A1A8AABA900B062E1 /* iBeacons */;
@@ -336,6 +502,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1A85FA711AE39710006ECA6C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A85FA721AE39710006ECA6C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1A85FA761AE39710006ECA6C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A85FA771AE39710006ECA6C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		7CE3F2541A8AABA900B062E1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -355,6 +537,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1A85FA851AE39710006ECA6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = iAdmin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1A85FA861AE39710006ECA6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = iAdmin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1A85FA871AE39710006ECA6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = iAdminTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iAdmin.app/iAdmin";
+			};
+			name = Debug;
+		};
+		1A85FA881AE39710006ECA6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = iAdminTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iAdmin.app/iAdmin";
+			};
+			name = Release;
+		};
 		7CE3F2681A8AABA900B062E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -495,6 +751,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1A85FA891AE39710006ECA6C /* Build configuration list for PBXNativeTarget "iAdmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A85FA851AE39710006ECA6C /* Debug */,
+				1A85FA861AE39710006ECA6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1A85FA8A1AE39710006ECA6C /* Build configuration list for PBXNativeTarget "iAdminTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A85FA871AE39710006ECA6C /* Debug */,
+				1A85FA881AE39710006ECA6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7CE3F2461A8AABA900B062E1 /* Build configuration list for PBXProject "iBeacons" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
