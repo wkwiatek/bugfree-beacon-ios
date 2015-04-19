@@ -73,6 +73,7 @@
 		B67A35AA18216FDAE0D80797 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CD47BA90A74E72EE651A7509 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF00B3981ABEF244005140B2 /* UrlDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlDetailsViewController.swift; sourceTree = "<group>"; };
+		FF0C19AF1AE40FC60036CE74 /* ObjCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		FF35CA691ADCC14500D02526 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FF876D611AA62A000013D613 /* BejkonREST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BejkonREST.swift; sourceTree = "<group>"; };
 		FFB536681AB5C82500F98554 /* NoSignalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSignalViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 				1A85FA761AE39710006ECA6C /* LaunchScreen.xib */,
 				1A85FA6B1AE39710006ECA6C /* AppDelegate.swift */,
 				1A85FA6A1AE39710006ECA6C /* Info.plist */,
+				FF0C19AF1AE40FC60036CE74 /* ObjCBridge.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -699,6 +701,7 @@
 				INFOPLIST_FILE = iBeacons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = iAdmin/ObjCBridge.h;
 			};
 			name = Debug;
 		};
@@ -711,6 +714,7 @@
 				INFOPLIST_FILE = iBeacons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = iAdmin/ObjCBridge.h;
 			};
 			name = Release;
 		};
