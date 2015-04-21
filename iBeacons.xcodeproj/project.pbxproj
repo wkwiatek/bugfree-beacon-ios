@@ -14,6 +14,7 @@
 		1A85FA751AE39710006ECA6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A85FA741AE39710006ECA6C /* Images.xcassets */; };
 		1A85FA781AE39710006ECA6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A85FA761AE39710006ECA6C /* LaunchScreen.xib */; };
 		1A85FA841AE39710006ECA6C /* iAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85FA831AE39710006ECA6C /* iAdminTests.swift */; };
+		4760460C1677E112AD3B3DBD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD47BA90A74E72EE651A7509 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7CE3F2511A8AABA900B062E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F2501A8AABA900B062E1 /* AppDelegate.swift */; };
 		7CE3F2531A8AABA900B062E1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F2521A8AABA900B062E1 /* DetailsViewController.swift */; };
 		7CE3F2561A8AABA900B062E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3F2541A8AABA900B062E1 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4760460C1677E112AD3B3DBD /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,9 +247,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A85FA891AE39710006ECA6C /* Build configuration list for PBXNativeTarget "iAdmin" */;
 			buildPhases = (
+				4D8B7ACCB4AA0843473751A7 /* Check Pods Manifest.lock */,
 				1A85FA631AE39710006ECA6C /* Sources */,
 				1A85FA641AE39710006ECA6C /* Frameworks */,
 				1A85FA651AE39710006ECA6C /* Resources */,
+				B434C9C5BBC3A5629973AED2 /* Embed Pods Frameworks */,
+				887ADB8104804D2F817EF6D2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -430,7 +435,52 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4D8B7ACCB4AA0843473751A7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		887ADB8104804D2F817EF6D2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9E8DCE7ABCA56535A31D8E36 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B434C9C5BBC3A5629973AED2 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -541,6 +591,7 @@
 /* Begin XCBuildConfiguration section */
 		1A85FA851AE39710006ECA6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 099D27526693DBED581D63FF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -554,11 +605,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = iAdmin/ObjCBridge.h;
 			};
 			name = Debug;
 		};
 		1A85FA861AE39710006ECA6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B67A35AA18216FDAE0D80797 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -569,6 +622,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = iAdmin/ObjCBridge.h;
 			};
 			name = Release;
 		};
@@ -701,7 +755,7 @@
 				INFOPLIST_FILE = iBeacons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = iAdmin/ObjCBridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -714,7 +768,7 @@
 				INFOPLIST_FILE = iBeacons/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = iAdmin/ObjCBridge.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

@@ -10,8 +10,6 @@ import UIKit
 import EstimoteSDK
 
 class MasterViewController: UITableViewController {
-
-    let beaconManager = ESTBeaconManager()
     
     var objects = [AnyObject]()
 
