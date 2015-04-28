@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1A85FA6C1AE39710006ECA6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85FA6B1AE39710006ECA6C /* AppDelegate.swift */; };
-		1A85FA6E1AE39710006ECA6C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85FA6D1AE39710006ECA6C /* MasterViewController.swift */; };
-		1A85FA701AE39710006ECA6C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A85FA6F1AE39710006ECA6C /* DetailViewController.swift */; };
 		1A85FA731AE39710006ECA6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A85FA711AE39710006ECA6C /* Main.storyboard */; };
 		1A85FA751AE39710006ECA6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A85FA741AE39710006ECA6C /* Images.xcassets */; };
 		1A85FA781AE39710006ECA6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A85FA761AE39710006ECA6C /* LaunchScreen.xib */; };
@@ -24,6 +22,8 @@
 		7CE3F2711A8AAC8400B062E1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3F2701A8AAC8400B062E1 /* Podfile */; };
 		C92C5241C80FB7B06B0C27E2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD47BA90A74E72EE651A7509 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FF00B3991ABEF244005140B2 /* UrlDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00B3981ABEF244005140B2 /* UrlDetailsViewController.swift */; };
+		FF0AFE941AF01F2700B21462 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0AFE931AF01F2700B21462 /* InitViewController.swift */; };
+		FF0AFE961AF0235600B21462 /* BeaconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */; };
 		FF35CA6A1ADCC14500D02526 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF35CA691ADCC14500D02526 /* Utils.swift */; };
 		FF876D621AA62A000013D613 /* BejkonREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF876D611AA62A000013D613 /* BejkonREST.swift */; };
 		FFB536691AB5C82500F98554 /* NoSignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB536681AB5C82500F98554 /* NoSignalViewController.swift */; };
@@ -52,8 +52,6 @@
 		1A85FA671AE39710006ECA6C /* iAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A85FA6A1AE39710006ECA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A85FA6B1AE39710006ECA6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1A85FA6D1AE39710006ECA6C /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		1A85FA6F1AE39710006ECA6C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1A85FA721AE39710006ECA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A85FA741AE39710006ECA6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1A85FA771AE39710006ECA6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -74,6 +72,8 @@
 		B67A35AA18216FDAE0D80797 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CD47BA90A74E72EE651A7509 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF00B3981ABEF244005140B2 /* UrlDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlDetailsViewController.swift; sourceTree = "<group>"; };
+		FF0AFE931AF01F2700B21462 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
+		FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconsTableViewController.swift; sourceTree = "<group>"; };
 		FF0C19AF1AE40FC60036CE74 /* ObjCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		FF35CA691ADCC14500D02526 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FF876D611AA62A000013D613 /* BejkonREST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BejkonREST.swift; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 		1A85FA681AE39710006ECA6C /* iAdmin */ = {
 			isa = PBXGroup;
 			children = (
-				1A85FA6D1AE39710006ECA6C /* MasterViewController.swift */,
-				1A85FA6F1AE39710006ECA6C /* DetailViewController.swift */,
+				FF0AFE931AF01F2700B21462 /* InitViewController.swift */,
+				FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */,
 				1A85FA711AE39710006ECA6C /* Main.storyboard */,
 				1A85FA691AE39710006ECA6C /* Supporting Files */,
 			);
@@ -502,8 +502,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A85FA701AE39710006ECA6C /* DetailViewController.swift in Sources */,
-				1A85FA6E1AE39710006ECA6C /* MasterViewController.swift in Sources */,
+				FF0AFE961AF0235600B21462 /* BeaconsTableViewController.swift in Sources */,
+				FF0AFE941AF01F2700B21462 /* InitViewController.swift in Sources */,
 				1A85FA6C1AE39710006ECA6C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
