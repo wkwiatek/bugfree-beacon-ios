@@ -22,13 +22,27 @@ class NoSignalViewController: UIViewController {
     
     func presentDetails(beaconData: BeaconData) {
         newBeacon = beaconData
-        performSegueWithIdentifier("ShowDetails", sender: self)
+        println("Performing segue to template \(newBeacon?.template)")
+        performSegueWithIdentifier(newBeacon?.template, sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowDetails" {
-            if let destinationVC = segue.destinationViewController as? DetailsViewController {
-                destinationVC.beaconData = newBeacon
+        
+        if let destinationVC = segue.destinationViewController as? DetailsViewController {
+            destinationVC.beaconData = newBeacon
+        
+            switch segue.identifier! {
+            case "ROUNDED_IMAGE":
+                println("Settings things for template ROUNDED_IMAGE")
+                break
+            case "SQUARED_IMAGE":
+                println("Settings things for template SQUARED_IMAGE")
+                break
+            case "SQUARED_IMAGE_ALIGN_LEFT":
+                println("Settings things for template SQUARED_IMAGE_ALIGN_LEFT")
+                break
+            default:
+                break
             }
         }
     }

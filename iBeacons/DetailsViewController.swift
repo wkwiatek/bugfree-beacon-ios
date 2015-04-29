@@ -6,9 +6,6 @@ class DetailsViewController: UIViewController {
     var beaconData: BeaconData?
     
     @IBOutlet weak var mainImage: UIImageView!
-    @IBOutlet weak var carMake: UILabel!
-    @IBOutlet weak var carModel: UILabel!
-    @IBOutlet weak var milage: UILabel!
     
     @IBOutlet weak var detailedView: UIView! {
         didSet {
@@ -16,11 +13,16 @@ class DetailsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var moreInfoBtn: UIButton!
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let ddcv = segue.destinationViewController as? CarDetailsViewController {
+        if let ddcv = segue.destinationViewController as? UrlDetailsViewController {
             if let identifier = segue.identifier {
                 switch identifier {
-                    case "ShowCarDetails":
+                    case "ShowUrlDetails":
                         ddcv.url = beaconData?.detailsUrl
                 default: break
                 }
@@ -46,14 +48,35 @@ class DetailsViewController: UIViewController {
             mainImage.image = UIImage(data: imageData!)
             mainImage.contentMode = .ScaleAspectFill
             
-            mainImage.layer.cornerRadius = mainImage.frame.size.width / 2
             mainImage.layer.borderWidth = 2.0
             mainImage.layer.borderColor = UIColor.blackColor().CGColor
             mainImage.clipsToBounds = true
             
-            carMake.text = beaconData!.carMake
-            carModel.text = beaconData!.carModel
-            milage.text = beaconData!.milage
+            switch beaconData!.template! {
+            case "ROUNDED_IMAGE":
+                println("Adjusting things for template ROUNDED_IMAGE")
+                mainImage.layer.cornerRadius = mainImage.frame.size.width / 2
+                break
+            case "SQUARED_IMAGE":
+                println("Adjusting things for template SQUARED_IMAGE")
+                break
+            case "SQUARED_IMAGE_ALIGN_LEFT":
+                println("Adjusting things for template SQUARED_IMAGE_ALIGN_LEFT")
+                break
+            default:
+                break
+            }
+        
+            titleLabel.text = beaconData?.title
+            titleLabel.textColor = Utils.colorWithHexString(beaconData!.titleColor!)
+            
+            subtitleLabel.textColor = Utils.colorWithHexString(beaconData!.subtitleColor!)
+            subtitleLabel.text = beaconData?.subtitle
+            
+            contentLabel.textColor = Utils.colorWithHexString(beaconData!.contentColor!)
+            contentLabel.text = beaconData?.content
+            
+            self.view.backgroundColor = Utils.colorWithHexString(beaconData!.backgroundColor!)
         }
     }
     

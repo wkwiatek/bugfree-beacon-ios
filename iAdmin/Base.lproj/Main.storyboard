@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GCT-Fc-Iay">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--Init View Controller-->
+        <scene sceneID="Pww-mt-OPK">
+            <objects>
+                <viewController id="g0D-eF-hma" customClass="InitViewController" customModule="iAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nh7-gd-eHG"/>
+                        <viewControllerLayoutGuide type="bottom" id="FcF-lu-BmY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5yU-uY-8cy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUd-wi-Xv4">
+                                <rect key="frame" x="247" y="235" width="107" height="30"/>
+                                <state key="normal" title="Range beacons">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wWI-wv-591" kind="show" identifier="all_beacons" id="f0P-J8-suH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-kh-5mo">
+                                <rect key="frame" x="237" y="328" width="127" height="30"/>
+                                <state key="normal" title="Show my beacons">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wWI-wv-591" kind="show" identifier="my_beacons" id="3HZ-O5-Xct"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="QTC-kh-5mo" secondAttribute="centerY" constant="-59" id="0C3-PP-Mju"/>
+                            <constraint firstItem="FUd-wi-Xv4" firstAttribute="top" secondItem="nh7-gd-eHG" secondAttribute="bottom" constant="134" id="4iV-rH-a9y"/>
+                            <constraint firstItem="QTC-kh-5mo" firstAttribute="top" secondItem="FUd-wi-Xv4" secondAttribute="bottom" constant="160" id="7jh-89-PkW"/>
+                            <constraint firstItem="QTC-kh-5mo" firstAttribute="top" secondItem="FUd-wi-Xv4" secondAttribute="bottom" constant="63" id="8LF-mN-ASw"/>
+                            <constraint firstItem="QTC-kh-5mo" firstAttribute="centerX" secondItem="FUd-wi-Xv4" secondAttribute="centerX" id="HvH-R3-9xx"/>
+                            <constraint firstItem="QTC-kh-5mo" firstAttribute="top" secondItem="FUd-wi-Xv4" secondAttribute="bottom" constant="160" id="IUg-LD-wbH"/>
+                            <constraint firstAttribute="centerY" secondItem="QTC-kh-5mo" secondAttribute="centerY" constant="-43" id="QfG-ek-9kR"/>
+                            <constraint firstAttribute="centerY" secondItem="FUd-wi-Xv4" secondAttribute="centerY" constant="50" id="aHk-kS-o7w"/>
+                            <constraint firstItem="FUd-wi-Xv4" firstAttribute="top" secondItem="nh7-gd-eHG" secondAttribute="bottom" constant="134" id="bdI-Se-KOg"/>
+                            <constraint firstAttribute="centerX" secondItem="FUd-wi-Xv4" secondAttribute="centerX" id="dSk-a3-etx"/>
+                            <constraint firstAttribute="centerY" secondItem="FUd-wi-Xv4" secondAttribute="centerY" constant="131" id="mHs-PT-kQ5"/>
+                            <constraint firstItem="QTC-kh-5mo" firstAttribute="centerX" secondItem="FUd-wi-Xv4" secondAttribute="centerX" id="tf5-fd-XoF"/>
+                            <constraint firstItem="QTC-kh-5mo" firstAttribute="top" secondItem="FUd-wi-Xv4" secondAttribute="bottom" constant="63" id="y2d-gO-JZi"/>
+                            <constraint firstAttribute="centerX" secondItem="QTC-kh-5mo" secondAttribute="centerX" id="yYv-bM-mVj"/>
+                            <constraint firstAttribute="centerY" secondItem="QTC-kh-5mo" secondAttribute="centerY" constant="40" id="yon-Tr-Bb8"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4iV-rH-a9y"/>
+                                <exclude reference="bdI-Se-KOg"/>
+                                <exclude reference="mHs-PT-kQ5"/>
+                                <exclude reference="0C3-PP-Mju"/>
+                                <exclude reference="7jh-89-PkW"/>
+                                <exclude reference="8LF-mN-ASw"/>
+                                <exclude reference="HvH-R3-9xx"/>
+                                <exclude reference="IUg-LD-wbH"/>
+                                <exclude reference="QfG-ek-9kR"/>
+                                <exclude reference="tf5-fd-XoF"/>
+                                <exclude reference="yon-Tr-Bb8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="0n1-Ix-YGb"/>
+                    <connections>
+                        <outlet property="myBeaconsBtn" destination="QTC-kh-5mo" id="HqH-y4-5dt"/>
+                        <outlet property="rangeBeaconsBtn" destination="FUd-wi-Xv4" id="hFG-fr-YbQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZKJ-2Q-SJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="42"/>
+        </scene>
+        <!--Beacons Table View Controller-->
+        <scene sceneID="CYY-wK-uU9">
+            <objects>
+                <tableViewController id="wWI-wv-591" customClass="BeaconsTableViewController" customModule="iAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="123" sectionHeaderHeight="22" sectionFooterHeight="22" id="RPL-RP-TQD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BeaconCell" rowHeight="123" id="NJH-ou-Q6q" customClass="BeaconTableViewCell" customModule="iAdmin" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NJH-ou-Q6q" id="5Dg-o9-GXj">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL3-Xl-Rhb">
+                                            <rect key="frame" x="8" y="50" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="bcp-Nl-HA9"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="myLabel" destination="FL3-Xl-Rhb" id="6W1-PY-DNs"/>
+                                    <segue destination="bYw-2i-2rF" kind="show" identifier="show_details" id="0b7-OJ-ht7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wWI-wv-591" id="oU5-A7-Yeh"/>
+                            <outlet property="delegate" destination="wWI-wv-591" id="Ix8-2F-rbY"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTh-Di-g5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1856" y="42"/>
+        </scene>
+        <!--Beacon Details View Controller-->
+        <scene sceneID="XQE-j4-jfo">
+            <objects>
+                <viewController id="bYw-2i-2rF" customClass="BeaconDetailsViewController" customModule="iAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rba-iA-mCL"/>
+                        <viewControllerLayoutGuide type="bottom" id="xKh-uP-iXJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LWY-wE-s11">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1e-7a-1PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2618" y="42"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WWo-fl-Epa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GCT-Fc-Iay" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dc0-IZ-cN0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="g0D-eF-hma" kind="relationship" relationship="rootViewController" id="Ows-cp-Rne"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4L7-gg-Cct" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216" y="42"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3HZ-O5-Xct"/>
+    </inferredMetricsTieBreakers>
+</document>

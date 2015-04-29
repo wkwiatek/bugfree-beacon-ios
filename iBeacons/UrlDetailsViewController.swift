@@ -1,6 +1,6 @@
 import UIKit
 
-class CarDetailsViewController: UIViewController {
+class UrlDetailsViewController: UIViewController {
     
     var url: NSURL?
     let beaconManager = BeaconManager.sharedInstance

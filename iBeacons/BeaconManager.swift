@@ -14,10 +14,17 @@ public func ==(lhs: CLBeacon, rhs: CLBeacon) -> Bool {
 
 struct BeaconData {
     let beacon: CLBeacon
-    var name: String?
-    var carMake: String?
-    var carModel: String?
-    var milage: String?
+    
+    var title: String?
+    var subtitle: String?
+    var content: String?
+    
+    var template: String?
+    var titleColor: String?
+    var subtitleColor: String?
+    var contentColor: String?
+    var backgroundColor: String?
+    
     var imageUrl: NSURL?
     var detailsUrl: NSURL?
     
@@ -31,6 +38,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     let uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
     let locationManager: CLLocationManager = CLLocationManager();
     let server: BejkonREST = BejkonREST(host: "http://bejkon.herokuapp.com");
+    var appActive: Bool = true
 
     var beaconsInRange = [CLBeacon]();
     var beaconsInRangeSorted = [AnyObject]();
@@ -72,15 +80,32 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         server.findBeacon(uuid, major: beacon.major.integerValue, minor: beacon.minor.integerValue) { response in
             let json = JSON(response.response!)
             
-            bData.name = json[0]["data"]["name"].string
-            bData.carMake = json[0]["data"]["carMake"].string
-            bData.carModel = json[0]["data"]["carModel"].string
-            bData.milage = json[0]["data"]["milage"].string
+            bData.title = json[0]["data"]["title"].string
+            bData.subtitle = json[0]["data"]["subtitle"].string
+            bData.content = json[0]["data"]["content"].string
+            
+            bData.template = json[0]["template"]["type"].string
+            bData.titleColor = json[0]["template"]["titleColor"].string
+            bData.subtitleColor = json[0]["template"]["subtitleColor"].string
+            bData.contentColor = json[0]["template"]["contentColor"].string
+            bData.backgroundColor = json[0]["template"]["backgroundColor"].string
+
             bData.imageUrl = NSURL(string: json[0]["data"]["imageUrl"].string!)
             bData.detailsUrl = NSURL(string: json[0]["data"]["detailsUrl"].string!)
             
-            self.noSignalView?.presentDetails(bData)
+            if (self.appActive) {
+                self.noSignalView?.presentDetails(bData)
+            } else {
+                self.presentPushNotification(bData)
+            }
         }
+    }
+    
+    func presentPushNotification(data: BeaconData) {
+        var notification : UILocalNotification = UILocalNotification();
+        notification.alertBody = data.title! + " " + data.subtitle!;
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification);
     }
     
     func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
@@ -104,7 +129,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         
         let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
 
-        println("Ranged beacons(\(beacons.count)): \(beacons)");
+        println("Ranged beacons(\(beacons.count))");
 
         if (knownBeacons.count > 0) {
             
