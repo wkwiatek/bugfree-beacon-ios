@@ -14,28 +14,28 @@ class BeaconsTableViewController: UITableViewController {
 
 
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return 2
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
+        //let data = myInternalDataStructure[indexPath.section][indexPath.row]
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("BeaconCell", forIndexPath: indexPath) as! BeaconTableViewCell
+        println("Here")
+        
+        cell.myLabel.text = "From controller"
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -72,14 +72,20 @@ class BeaconsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if let identifier = segue.identifier {
+            if identifier == "show_details" {
+                let cell = sender as! BeaconTableViewCell
+                
+                if let indexPath = tableView.indexPathForCell(cell) {
+                    let destinationMVC = segue.destinationViewController as! BeaconDetailsViewController
+                    println("Settings things for the detailed view, ip: \(indexPath)")
+                }
+                
+            }
+        }
     }
-    */
-
+    
 }

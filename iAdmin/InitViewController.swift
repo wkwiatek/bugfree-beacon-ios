@@ -14,10 +14,10 @@ class InitViewController: UIViewController {
         if let destinationVC = segue.destinationViewController as? BeaconsTableViewController {
             switch segue.identifier! {
             case "all_beacons":
-                println("Display all found beacons")
+                destinationVC.title = "All beacons"
                 break
             case "my_beacons":
-                println("Display my beacons")
+                destinationVC.title = "My beacons"
                 break
             default:
                 break

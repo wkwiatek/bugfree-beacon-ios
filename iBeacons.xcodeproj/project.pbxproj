@@ -24,6 +24,8 @@
 		FF00B3991ABEF244005140B2 /* UrlDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00B3981ABEF244005140B2 /* UrlDetailsViewController.swift */; };
 		FF0AFE941AF01F2700B21462 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0AFE931AF01F2700B21462 /* InitViewController.swift */; };
 		FF0AFE961AF0235600B21462 /* BeaconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */; };
+		FF3084661AF0918D00495295 /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3084651AF0918D00495295 /* BeaconTableViewCell.swift */; };
+		FF3084681AF097E500495295 /* BeaconDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3084671AF097E500495295 /* BeaconDetailsViewController.swift */; };
 		FF35CA6A1ADCC14500D02526 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF35CA691ADCC14500D02526 /* Utils.swift */; };
 		FF876D621AA62A000013D613 /* BejkonREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF876D611AA62A000013D613 /* BejkonREST.swift */; };
 		FFB536691AB5C82500F98554 /* NoSignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB536681AB5C82500F98554 /* NoSignalViewController.swift */; };
@@ -75,6 +77,8 @@
 		FF0AFE931AF01F2700B21462 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconsTableViewController.swift; sourceTree = "<group>"; };
 		FF0C19AF1AE40FC60036CE74 /* ObjCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+		FF3084651AF0918D00495295 /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
+		FF3084671AF097E500495295 /* BeaconDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconDetailsViewController.swift; sourceTree = "<group>"; };
 		FF35CA691ADCC14500D02526 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FF876D611AA62A000013D613 /* BejkonREST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BejkonREST.swift; sourceTree = "<group>"; };
 		FFB536681AB5C82500F98554 /* NoSignalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSignalViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 			children = (
 				FF0AFE931AF01F2700B21462 /* InitViewController.swift */,
 				FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */,
+				FF3084651AF0918D00495295 /* BeaconTableViewCell.swift */,
+				FF3084671AF097E500495295 /* BeaconDetailsViewController.swift */,
 				1A85FA711AE39710006ECA6C /* Main.storyboard */,
 				1A85FA691AE39710006ECA6C /* Supporting Files */,
 			);
@@ -505,6 +511,8 @@
 				FF0AFE961AF0235600B21462 /* BeaconsTableViewController.swift in Sources */,
 				FF0AFE941AF01F2700B21462 /* InitViewController.swift in Sources */,
 				1A85FA6C1AE39710006ECA6C /* AppDelegate.swift in Sources */,
+				FF3084681AF097E500495295 /* BeaconDetailsViewController.swift in Sources */,
+				FF3084661AF0918D00495295 /* BeaconTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
