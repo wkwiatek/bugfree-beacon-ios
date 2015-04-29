@@ -2,9 +2,29 @@ import UIKit
 
 class BeaconsTableViewController: UITableViewController {
 
+    private struct Storyboard {
+        static let CellReuseIdentifier = "BeaconCell"
+    }
+    
+    var beacons = [Beacon]()
+    
+    // MARK: View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        BeaconFeeder.feedFromRanging { (newBeacons) -> () in
+            
+            // It will be an asynchronous API - we don't want to block main queue
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                if newBeacons.count > 0 {
+                    self.beacons.removeAll()
+                    self.beacons = newBeacons
+                    self.tableView.reloadData()
+                }
+            }
+            
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -19,19 +39,16 @@ class BeaconsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 2
+        return beacons.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //let data = myInternalDataStructure[indexPath.section][indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! BeaconTableViewCell
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("BeaconCell", forIndexPath: indexPath) as! BeaconTableViewCell
-        println("Here")
-        
-        cell.myLabel.text = "From controller"
+        let data = beacons[indexPath.row]
+
+        cell.myLabel.text = data.minor.description
         
         return cell
     }
