@@ -3,36 +3,60 @@ import UIKit
 class BeaconsTableViewController: UITableViewController {
 
     private struct Storyboard {
-        static let CellReuseIdentifier = "BeaconCell"
+        static let RangedCellReuseIdentifier = "RangedBeaconCell"
+        static let MyCellReuseIdentifier = "MyBeaconCell"
     }
     
-    var beacons = [Beacon]()
+    enum BeaconType {
+        case MY, RANGED
+    }
+    
+    var beacons = [AbstractBeacon]()
+    var listType: BeaconType?
     
     // MARK: View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        BeaconFeeder.feedFromRanging { (newBeacons) -> () in
-            
-            // It will be an asynchronous API - we don't want to block main queue
-            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                if newBeacons.count > 0 {
-                    self.beacons.removeAll()
-                    self.beacons = newBeacons
-                    self.tableView.reloadData()
-                }
-            }
-            
+        refresh()
+    }
+    
+    func refresh() {
+        if refreshControl != nil {
+            refreshControl?.beginRefreshing()
         }
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        refresh(refreshControl)
     }
+ 
 
-
+    @IBAction func refresh(sender: UIRefreshControl?) {
+        
+        switch listType! {
+        case .MY:
+            println ("Refreshin my beacons")
+            // TODO: Implement me
+            break
+        case .RANGED:
+            println("Refreshing ranged beacons")
+            
+            BeaconFeeder.feedFromRanging { (newBeacons) -> () in
+                
+                // It will be an asynchronous API - we don't want to block main queue
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    if newBeacons.count > 0 {
+                        self.beacons.removeAll()
+                        self.beacons = newBeacons
+                        self.tableView.reloadData()
+                        sender?.endRefreshing()
+                    }
+                }
+                
+            }
+            
+            break
+        }
+    }
+    
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -44,11 +68,21 @@ class BeaconsTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! BeaconTableViewCell
         
-        let data = beacons[indexPath.row]
-
-        cell.myLabel.text = data.minor.description
+        var cell: BeaconTableViewCell
+        
+        switch listType! {
+        case .MY:
+            println("Setting cell to customer type")
+            cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.MyCellReuseIdentifier, forIndexPath: indexPath) as! BeaconTableViewCell
+    
+        case .RANGED:
+            println("Setting cell to ranged type")
+            cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.RangedCellReuseIdentifier, forIndexPath: indexPath) as! BeaconTableViewCell
+        }
+        
+        // Configure the cell using it's public API
+        cell.abstractBeacon = beacons[indexPath.row]
         
         return cell
     }

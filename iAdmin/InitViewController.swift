@@ -1,9 +1,6 @@
 import UIKit
 
 class InitViewController: UIViewController {
-
-    @IBOutlet weak var rangeBeaconsBtn: UIButton!
-    @IBOutlet weak var myBeaconsBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,10 +11,12 @@ class InitViewController: UIViewController {
         if let destinationVC = segue.destinationViewController as? BeaconsTableViewController {
             switch segue.identifier! {
             case "all_beacons":
-                destinationVC.title = "All beacons"
+                destinationVC.title = "All beacons in range"
+                destinationVC.listType = BeaconsTableViewController.BeaconType.RANGED
                 break
             case "my_beacons":
                 destinationVC.title = "My beacons"
+                destinationVC.listType = BeaconsTableViewController.BeaconType.MY
                 break
             default:
                 break

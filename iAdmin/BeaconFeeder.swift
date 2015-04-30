@@ -1,17 +1,29 @@
 import Foundation
+import CoreLocation
 
 class BeaconFeeder {
     
     // Returns some beacons from ranging
-    static func feedFromRanging(handler: (beacons: [Beacon]) -> ()) {
-        var beacons = [Beacon]()
+    static func feedFromRanging(handler: (beacons: [RangedBeacon]) -> ()) {
+        var rangedBeacons = [RangedBeacon]()
         
-        let beacon1 = Beacon(minor: 1,major: 2,uuid: "uuid1")
-        let beacon2 = Beacon(minor: 34,major: 522,uuid: "uuid2")
+        // TODO: Implement me smarter
         
-        beacons.append(beacon1)
-        beacons.append(beacon2)
+        let beacon1 = RangedBeacon(minor: 1,major: 2,uuid: "uuid1")
+        let beacon2 = RangedBeacon(minor: 34,major: 522,uuid: "uuid2")
         
-        handler(beacons: beacons)
+        rangedBeacons.append(beacon1)
+        rangedBeacons.append(beacon2)
+        
+        handler(beacons: rangedBeacons)
+    }
+    
+    // Return customer beacons
+    static func feedMyBeacons(handler: (beacons: [MyBeacon]) -> ()) {
+        var myBeacons = [MyBeacon]()
+        
+        // TODO: Implement me
+        
+        handler(beacons: myBeacons)
     }
 }
