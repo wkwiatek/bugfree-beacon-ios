@@ -26,6 +26,7 @@ class BeaconFeeder {
         let beacon1 = MyBeacon()
         beacon1.title = "Fryzjer"
         beacon1.subtitle = "Odwiedz fryzjera"
+        beacon1.content = "Przykladowy content"
         
         myBeacons.append(beacon1)
         

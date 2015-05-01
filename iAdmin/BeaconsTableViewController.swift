@@ -138,24 +138,24 @@ class BeaconsTableViewController: UITableViewController {
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
-            if identifier == "show_details" {
-                let cell = sender as! BeaconTableViewCell
-                
-                if let indexPath = tableView.indexPathForCell(cell) {
-                    println("Settings things for the detailed view, ip: \(indexPath)")
 
-                    switch listType! {
-                    case .MY:
-                        println("Processing to MyBeaconDetailsViewController")
-                        let destinationMVC = segue.destinationViewController as! MyBeaconDetailsViewController
-                        
-                    case .RANGED:
-                        println("Processing to RangedBeaconDetailsViewController")
-                        let destinationMVC = segue.destinationViewController as! RangedBeaconDetailsViewController
-                    }
+            let cell = sender as! BeaconTableViewCell
+            
+            if let indexPath = tableView.indexPathForCell(cell) {
+
+                switch identifier {
+                case "show_range_details":
+                    let beacon = beacons[indexPath.item] as! RangedBeacon
+                    let destinationMVC = segue.destinationViewController as! RangedBeaconDetailsViewController
+                    // TODO: Set things in view here
                     
+                case "show_my_details":
+                    let beacon = beacons[indexPath.item] as! MyBeacon
+                    let destinationMVC = segue.destinationViewController as! MyBeaconDetailsViewController
+                    destinationMVC.beacon = beacon
+                    
+                default: break
                 }
-                
             }
         }
     }
