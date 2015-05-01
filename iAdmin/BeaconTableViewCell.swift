@@ -11,7 +11,6 @@ class BeaconTableViewCell: UITableViewCell {
     func updateUI() {
         
         if abstractBeacon is MyBeacon {
-            println("My beacon cell initializer")
             let beacon = abstractBeacon as? MyBeacon
             
             self.textLabel?.text = beacon?.title
@@ -19,7 +18,6 @@ class BeaconTableViewCell: UITableViewCell {
         }
         
         if abstractBeacon is RangedBeacon {
-            println("Ranged beacon cell initializer")
             let beacon = abstractBeacon as? RangedBeacon
             
             self.textLabel?.text = beacon?.uuid

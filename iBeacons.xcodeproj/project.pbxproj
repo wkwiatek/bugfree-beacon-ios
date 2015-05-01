@@ -25,7 +25,7 @@
 		FF0AFE941AF01F2700B21462 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0AFE931AF01F2700B21462 /* InitViewController.swift */; };
 		FF0AFE961AF0235600B21462 /* BeaconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */; };
 		FF3084661AF0918D00495295 /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3084651AF0918D00495295 /* BeaconTableViewCell.swift */; };
-		FF3084681AF097E500495295 /* BeaconDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3084671AF097E500495295 /* BeaconDetailsViewController.swift */; };
+		FF3084681AF097E500495295 /* RangedBeaconDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3084671AF097E500495295 /* RangedBeaconDetailsViewController.swift */; };
 		FF35CA6A1ADCC14500D02526 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF35CA691ADCC14500D02526 /* Utils.swift */; };
 		FF4348E11AF1E41D0025A980 /* AbstractBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4348E01AF1E41D0025A980 /* AbstractBeacon.swift */; };
 		FF4348E31AF1E4840025A980 /* MyBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4348E21AF1E4840025A980 /* MyBeacon.swift */; };
@@ -33,6 +33,7 @@
 		FF9C12BD1AF15F330065C9F5 /* RangedBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C12BC1AF15F330065C9F5 /* RangedBeacon.swift */; };
 		FF9C12BF1AF15F6E0065C9F5 /* BeaconFeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C12BE1AF15F6E0065C9F5 /* BeaconFeeder.swift */; };
 		FFB536691AB5C82500F98554 /* NoSignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB536681AB5C82500F98554 /* NoSignalViewController.swift */; };
+		FFBCB2A11AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBCB2A01AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift */; };
 		FFDC71101AB1F8C100AB2D0A /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC710F1AB1F8C100AB2D0A /* BeaconManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +83,7 @@
 		FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconsTableViewController.swift; sourceTree = "<group>"; };
 		FF0C19AF1AE40FC60036CE74 /* ObjCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		FF3084651AF0918D00495295 /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
-		FF3084671AF097E500495295 /* BeaconDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconDetailsViewController.swift; sourceTree = "<group>"; };
+		FF3084671AF097E500495295 /* RangedBeaconDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangedBeaconDetailsViewController.swift; sourceTree = "<group>"; };
 		FF35CA691ADCC14500D02526 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FF4348E01AF1E41D0025A980 /* AbstractBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractBeacon.swift; sourceTree = "<group>"; };
 		FF4348E21AF1E4840025A980 /* MyBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBeacon.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		FF9C12BC1AF15F330065C9F5 /* RangedBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangedBeacon.swift; sourceTree = "<group>"; };
 		FF9C12BE1AF15F6E0065C9F5 /* BeaconFeeder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconFeeder.swift; sourceTree = "<group>"; };
 		FFB536681AB5C82500F98554 /* NoSignalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSignalViewController.swift; sourceTree = "<group>"; };
+		FFBCB2A01AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBeaconDetailsViewController.swift; sourceTree = "<group>"; };
 		FFDC710F1AB1F8C100AB2D0A /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,7 +136,8 @@
 				FF0AFE931AF01F2700B21462 /* InitViewController.swift */,
 				FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */,
 				FF3084651AF0918D00495295 /* BeaconTableViewCell.swift */,
-				FF3084671AF097E500495295 /* BeaconDetailsViewController.swift */,
+				FF3084671AF097E500495295 /* RangedBeaconDetailsViewController.swift */,
+				FFBCB2A01AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift */,
 				1A85FA711AE39710006ECA6C /* Main.storyboard */,
 				1A85FA691AE39710006ECA6C /* Supporting Files */,
 			);
@@ -534,7 +537,8 @@
 				FF4348E31AF1E4840025A980 /* MyBeacon.swift in Sources */,
 				FF4348E11AF1E41D0025A980 /* AbstractBeacon.swift in Sources */,
 				1A85FA6C1AE39710006ECA6C /* AppDelegate.swift in Sources */,
-				FF3084681AF097E500495295 /* BeaconDetailsViewController.swift in Sources */,
+				FF3084681AF097E500495295 /* RangedBeaconDetailsViewController.swift in Sources */,
+				FFBCB2A11AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift in Sources */,
 				FF3084661AF0918D00495295 /* BeaconTableViewCell.swift in Sources */,
 				FF9C12BD1AF15F330065C9F5 /* RangedBeacon.swift in Sources */,
 			);

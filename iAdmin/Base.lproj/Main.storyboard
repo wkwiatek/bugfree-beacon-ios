@@ -127,6 +127,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qPz-Cr-igw" kind="show" id="CN1-tP-eiV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -145,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="1856" y="42"/>
         </scene>
-        <!--Beacon Details View Controller-->
+        <!--Ranged Beacon Details View Controller-->
         <scene sceneID="XQE-j4-jfo">
             <objects>
-                <viewController id="bYw-2i-2rF" customClass="BeaconDetailsViewController" customModule="iAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bYw-2i-2rF" customClass="RangedBeaconDetailsViewController" customModule="iAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rba-iA-mCL"/>
                         <viewControllerLayoutGuide type="bottom" id="xKh-uP-iXJ"/>
@@ -156,12 +159,54 @@
                     <view key="view" contentMode="scaleToFill" id="LWY-wE-s11">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranged beacon details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRL-UD-i9w">
+                                <rect key="frame" x="212" y="289" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="fRL-UD-i9w" secondAttribute="centerY" id="1Je-rJ-X7p"/>
+                            <constraint firstAttribute="centerX" secondItem="fRL-UD-i9w" secondAttribute="centerX" id="zdW-rz-D4V"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1e-7a-1PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2618" y="42"/>
+            <point key="canvasLocation" x="2684" y="-298"/>
+        </scene>
+        <!--My Beacon Details View Controller-->
+        <scene sceneID="3kY-ls-wsK">
+            <objects>
+                <viewController id="qPz-Cr-igw" customClass="MyBeaconDetailsViewController" customModule="iAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j7C-VS-h9H"/>
+                        <viewControllerLayoutGuide type="bottom" id="hZ4-FY-fRg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DJf-nx-h54">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer beacon details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Koa-7q-Brh">
+                                <rect key="frame" x="204" y="290" width="193" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Koa-7q-Brh" secondAttribute="centerX" id="RGR-xs-e5U"/>
+                            <constraint firstAttribute="centerY" secondItem="Koa-7q-Brh" secondAttribute="centerY" id="zPk-fB-MQI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BFx-mw-Et9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2684" y="460"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WWo-fl-Epa">

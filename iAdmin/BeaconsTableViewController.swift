@@ -142,8 +142,18 @@ class BeaconsTableViewController: UITableViewController {
                 let cell = sender as! BeaconTableViewCell
                 
                 if let indexPath = tableView.indexPathForCell(cell) {
-                    let destinationMVC = segue.destinationViewController as! BeaconDetailsViewController
                     println("Settings things for the detailed view, ip: \(indexPath)")
+
+                    switch listType! {
+                    case .MY:
+                        println("Processing to MyBeaconDetailsViewController")
+                        let destinationMVC = segue.destinationViewController as! MyBeaconDetailsViewController
+                        
+                    case .RANGED:
+                        println("Processing to RangedBeaconDetailsViewController")
+                        let destinationMVC = segue.destinationViewController as! RangedBeaconDetailsViewController
+                    }
+                    
                 }
                 
             }
