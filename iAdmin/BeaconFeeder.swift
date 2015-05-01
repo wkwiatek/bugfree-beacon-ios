@@ -1,19 +1,13 @@
 import Foundation
-import CoreLocation
+import EstimoteSDK
 
 class BeaconFeeder {
     
+    static let beaconManager = BeaconManager()
+    
     // Returns some beacons from ranging
     static func feedFromRanging(handler: (beacons: [RangedBeacon]) -> ()) {
-        var rangedBeacons = [RangedBeacon]()
-
-        let beacon1 = RangedBeacon(minor: 1, major: 2, uuid: "uuid1")
-        let beacon2 = RangedBeacon(minor: 34, major: 522, uuid: "uuid2")
-        
-        rangedBeacons.append(beacon1)
-        rangedBeacons.append(beacon2)
-        
-        handler(beacons: rangedBeacons)
+        handler(beacons: beaconManager.getBeaconsInRange())
     }
     
     // Return customer beacons
