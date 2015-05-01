@@ -13,6 +13,9 @@ class BeaconTableViewCell: UITableViewCell {
         if abstractBeacon is MyBeacon {
             println("My beacon cell initializer")
             let beacon = abstractBeacon as? MyBeacon
+            
+            self.textLabel?.text = beacon?.title
+            self.detailTextLabel?.text = beacon?.subtitle
         }
         
         if abstractBeacon is RangedBeacon {

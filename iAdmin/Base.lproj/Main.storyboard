@@ -107,7 +107,7 @@
                                     <segue destination="bYw-2i-2rF" kind="show" identifier="show_details" id="0b7-OJ-ht7"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyBeaconCell" textLabel="nwW-he-oq9" detailTextLabel="1k2-JM-bOS" style="IBUITableViewCellStyleValue2" id="xFk-gZ-DZJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyBeaconCell" textLabel="nwW-he-oq9" detailTextLabel="1k2-JM-bOS" style="IBUITableViewCellStyleValue2" id="xFk-gZ-DZJ" customClass="BeaconTableViewCell" customModule="iAdmin" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xFk-gZ-DZJ" id="j2Y-tG-kn6">

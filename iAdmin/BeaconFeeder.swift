@@ -9,8 +9,8 @@ class BeaconFeeder {
         
         // TODO: Implement me smarter
         
-        let beacon1 = RangedBeacon(minor: 1,major: 2,uuid: "uuid1")
-        let beacon2 = RangedBeacon(minor: 34,major: 522,uuid: "uuid2")
+        let beacon1 = RangedBeacon(minor: 1, major: 2, uuid: "uuid1")
+        let beacon2 = RangedBeacon(minor: 34, major: 522, uuid: "uuid2")
         
         rangedBeacons.append(beacon1)
         rangedBeacons.append(beacon2)
@@ -23,6 +23,11 @@ class BeaconFeeder {
         var myBeacons = [MyBeacon]()
         
         // TODO: Implement me
+        let beacon1 = MyBeacon()
+        beacon1.title = "Fryzjer"
+        beacon1.subtitle = "Odwiedz fryzjera"
+        
+        myBeacons.append(beacon1)
         
         handler(beacons: myBeacons)
     }

@@ -34,7 +34,20 @@ class BeaconsTableViewController: UITableViewController {
         switch listType! {
         case .MY:
             println ("Refreshin my beacons")
-            // TODO: Implement me
+            
+            BeaconFeeder.feedMyBeacons({ (newBeacons) -> () in
+                
+                // It will be an asynchronous API - we don't want to block main queue
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    if newBeacons.count > 0 {
+                        self.beacons.removeAll()
+                        self.beacons = newBeacons
+                        self.tableView.reloadData()
+                        sender?.endRefreshing()
+                    }
+                }
+            })
+            
             break
         case .RANGED:
             println("Refreshing ranged beacons")
@@ -73,11 +86,9 @@ class BeaconsTableViewController: UITableViewController {
         
         switch listType! {
         case .MY:
-            println("Setting cell to customer type")
             cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.MyCellReuseIdentifier, forIndexPath: indexPath) as! BeaconTableViewCell
     
         case .RANGED:
-            println("Setting cell to ranged type")
             cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.RangedCellReuseIdentifier, forIndexPath: indexPath) as! BeaconTableViewCell
         }
         
