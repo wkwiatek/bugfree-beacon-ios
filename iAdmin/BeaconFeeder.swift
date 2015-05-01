@@ -20,17 +20,9 @@ class BeaconFeeder {
     static func feedMyBeacons(handler: (beacons: [MyBeacon]) -> ()) {
         var myBeacons = [MyBeacon]()
         
-        let beacon1 = MyBeacon()
-        beacon1.title = "Fryzjer"
-        beacon1.subtitle = "Odwiedz fryzjera"
-        beacon1.content = "Przykladowy content"
-        beacon1.titleColor = "#000000"
-        beacon1.subtitleColor = "#111111"
-        beacon1.contentColor = "#222222"
-        beacon1.backgroundColor = "#FFFFFF"
-        
-        myBeacons.append(beacon1)
-        
-        handler(beacons: myBeacons)
+        BeaconProvider.getAll("B9407F30-F5F8-466E-AFF9-25556B57FE6D") { beacons in
+            println("Got beacons: \(beacons.count)")
+            handler(beacons: beacons)
+        }
     }
 }

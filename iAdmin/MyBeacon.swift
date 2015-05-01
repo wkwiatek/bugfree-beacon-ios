@@ -13,4 +13,17 @@ class MyBeacon: AbstractBeacon {
     
     var imageUrl: NSURL?
     var detailsUrl: NSURL?
+    
+    init(title: String, subtitle: String, content: String, template: String,
+        titleColor: String, subtitleColor: String, contentColor: String, backgroundColor: String) {
+        
+            self.title = title
+            self.subtitle = subtitle
+            self.content = content
+            self.template = template
+            self.titleColor = titleColor
+            self.subtitleColor = subtitleColor
+            self.contentColor = contentColor
+            self.backgroundColor = backgroundColor
+    }
 }

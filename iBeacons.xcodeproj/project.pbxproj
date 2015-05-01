@@ -34,6 +34,8 @@
 		FF9C12BF1AF15F6E0065C9F5 /* BeaconFeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C12BE1AF15F6E0065C9F5 /* BeaconFeeder.swift */; };
 		FFB536691AB5C82500F98554 /* NoSignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB536681AB5C82500F98554 /* NoSignalViewController.swift */; };
 		FFBCB2A11AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBCB2A01AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift */; };
+		FFBCB2A41AF3BFA1009EAEB9 /* BejkonREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBCB2A31AF3BFA1009EAEB9 /* BejkonREST.swift */; };
+		FFBCB2A61AF3C2BA009EAEB9 /* BeaconProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBCB2A51AF3C2BA009EAEB9 /* BeaconProvider.swift */; };
 		FFDC71101AB1F8C100AB2D0A /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC710F1AB1F8C100AB2D0A /* BeaconManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +94,8 @@
 		FF9C12BE1AF15F6E0065C9F5 /* BeaconFeeder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconFeeder.swift; sourceTree = "<group>"; };
 		FFB536681AB5C82500F98554 /* NoSignalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoSignalViewController.swift; sourceTree = "<group>"; };
 		FFBCB2A01AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBeaconDetailsViewController.swift; sourceTree = "<group>"; };
+		FFBCB2A31AF3BFA1009EAEB9 /* BejkonREST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BejkonREST.swift; sourceTree = "<group>"; };
+		FFBCB2A51AF3C2BA009EAEB9 /* BeaconProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconProvider.swift; sourceTree = "<group>"; };
 		FFDC710F1AB1F8C100AB2D0A /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,7 @@
 		1A85FA681AE39710006ECA6C /* iAdmin */ = {
 			isa = PBXGroup;
 			children = (
+				FFBCB2A21AF3BF7F009EAEB9 /* Server */,
 				FF9C12BB1AF15F1B0065C9F5 /* Beacon */,
 				FF0AFE931AF01F2700B21462 /* InitViewController.swift */,
 				FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */,
@@ -267,6 +272,15 @@
 				FF9C12BE1AF15F6E0065C9F5 /* BeaconFeeder.swift */,
 			);
 			name = Beacon;
+			sourceTree = "<group>";
+		};
+		FFBCB2A21AF3BF7F009EAEB9 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				FFBCB2A31AF3BFA1009EAEB9 /* BejkonREST.swift */,
+				FFBCB2A51AF3C2BA009EAEB9 /* BeaconProvider.swift */,
+			);
+			name = Server;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -539,7 +553,9 @@
 				1A85FA6C1AE39710006ECA6C /* AppDelegate.swift in Sources */,
 				FF3084681AF097E500495295 /* RangedBeaconDetailsViewController.swift in Sources */,
 				FFBCB2A11AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift in Sources */,
+				FFBCB2A41AF3BFA1009EAEB9 /* BejkonREST.swift in Sources */,
 				FF3084661AF0918D00495295 /* BeaconTableViewCell.swift in Sources */,
+				FFBCB2A61AF3C2BA009EAEB9 /* BeaconProvider.swift in Sources */,
 				FF9C12BD1AF15F330065C9F5 /* RangedBeacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
