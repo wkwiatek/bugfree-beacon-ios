@@ -23,7 +23,6 @@ class BeaconTableViewCell: UITableViewCell {
             self.textLabel?.text = beacon?.uuid
             self.detailTextLabel?.text = "Major: \(beacon!.major.description), minor: \(beacon!.minor.description)"
         }
-        
 
     }
 }

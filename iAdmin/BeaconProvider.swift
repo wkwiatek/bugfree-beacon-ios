@@ -10,14 +10,17 @@ class BeaconProvider {
             let json = JSON(response.response!)
 
             for (index: String, singleBeacon: JSON) in json {
-                
+                                
                 var beacon = MyBeacon(
                     major: singleBeacon["major"].int!,
                     minor: singleBeacon["minor"].int!,
                     uuid: singleBeacon["uuid"].string!,
+                    id: singleBeacon["id"].string!,
                     title: singleBeacon["data"]["title"].string!,
                     subtitle: singleBeacon["data"]["subtitle"].string!,
                     content: singleBeacon["data"]["content"].string!,
+                    imageUrl: singleBeacon["data"]["imageUrl"].string!,
+                    detailsUrl: singleBeacon["data"]["detailsUrl"].string!,
                     template: singleBeacon["template"]["type"].string!,
                     titleColor: singleBeacon["template"]["titleColor"].string!,
                     subtitleColor: singleBeacon["template"]["subtitleColor"].string!,

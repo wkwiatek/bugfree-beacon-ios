@@ -29,6 +29,7 @@ class BejkonREST {
     
     static func findBeacon(uuid: String, major: Int, minor: Int, completion: (response: Response) -> ()) {
         var responseFromServer = Response()
+
         
         Alamofire
             .request(.GET, "\(host)/beacon", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
@@ -39,6 +40,39 @@ class BejkonREST {
                 responseFromServer.response = json
                 
                 completion(response: responseFromServer)
+        }
+    }
+    
+    static func updateBeacon(id: String, uuid: String, major: Int, minor: Int, customer: String, title: String, subtitle: String, content: String, imageUrl: String, detailsUrl: String, templateType: String, titleColor: String, subtitleColor: String, contentColor: String, backgroundColor: String) {
+        
+        let params: [String : AnyObject] = [
+            "id": id,
+            "uuid": uuid,
+            "major": major,
+            "minor": minor,
+            "customer": customer,
+            "data":[
+                "title": title,
+                "subtitle": subtitle,
+                "content": content,
+                "imageUrl": imageUrl,
+                "detailsUrl": detailsUrl
+            ],
+            "template":[
+                "type": templateType,
+                "titleColor": titleColor,
+                "subtitleColor": subtitleColor,
+                "contentColor": contentColor,
+                "backgroundColor": backgroundColor
+            ]
+        ]
+        
+        Alamofire
+            .request(.PUT, "\(host)/beacon/\(id)", parameters: params, encoding: .JSON)
+            .response { (request, response, smth, error) -> Void in
+                println("Request: \(request)")
+                println("Response: \(response)")
+                println("error: \(error)")
         }
     }
 }

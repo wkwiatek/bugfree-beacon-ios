@@ -44,6 +44,23 @@ class MyBeaconDetailsViewController: UIViewController {
     }
 
     @IBAction func saveBeaconData(sender: AnyObject) {
-        println("Saving new beacon data")
+        println("Updating beacon with new data")
+        
+        BejkonREST.updateBeacon(
+            beacon!.id!,
+            uuid: beacon!.uuid,
+            major: beacon!.major,
+            minor: beacon!.minor,
+            customer: "",
+            title: titleTextField.text,
+            subtitle: subtitleTextField.text,
+            content: contentTextField.text,
+            imageUrl: beacon!.imageUrl!,
+            detailsUrl: beacon!.detailsUrl!,
+            templateType: "ROUNDED_IMAGE",
+            titleColor: titleColorTextField.text,
+            subtitleColor: subtitleTextField.text,
+            contentColor: contenColorTextField.text,
+            backgroundColor: backgroundColorTextField.text)
     }
 }
