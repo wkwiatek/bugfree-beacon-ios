@@ -4,6 +4,7 @@ class InitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        BeaconFeeder.beaconManager.startRanging()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
