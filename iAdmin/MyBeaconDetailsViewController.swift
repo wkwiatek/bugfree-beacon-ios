@@ -11,6 +11,7 @@ class MyBeaconDetailsViewController: UIViewController {
     @IBOutlet weak var subtitleColorTextField: UITextField!
     @IBOutlet weak var contenColorTextField: UITextField!
     @IBOutlet weak var backgroundColorTextField: UITextField!
+    @IBOutlet weak var templateSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,21 @@ class MyBeaconDetailsViewController: UIViewController {
         subtitleColorTextField.text = beacon?.subtitleColor!
         contenColorTextField.text = beacon?.contentColor!
         backgroundColorTextField.text = beacon?.backgroundColor!
+        
+        println("Template: \(beacon?.template)")
+
+        switch beacon!.template! {
+            case "ROUNDED_IMAGE":
+                templateSegmentedControl.selectedSegmentIndex = 0
+            case "SQUARED_IMAGE":
+                templateSegmentedControl.selectedSegmentIndex = 1
+            case "SQUARED_IMAGE_ALIGN_LEFT":
+                templateSegmentedControl.selectedSegmentIndex = 2
+        default:
+            templateSegmentedControl.selected = false
+            break
+        }
+        
     }
 
     @IBAction func saveBeaconData(sender: AnyObject) {

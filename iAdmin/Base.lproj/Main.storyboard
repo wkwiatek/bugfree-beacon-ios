@@ -387,6 +387,7 @@
                         <outlet property="contentTextField" destination="fld-Ra-8zt" id="0sK-tU-UMK"/>
                         <outlet property="subtitleColorTextField" destination="fCd-QE-DA2" id="GZk-Nc-bTt"/>
                         <outlet property="subtitleTextField" destination="ig3-2S-Hu1" id="Kbo-wo-mFZ"/>
+                        <outlet property="templateSegmentedControl" destination="db9-Qd-fHW" id="GdF-mM-Uw4"/>
                         <outlet property="titleColorTextField" destination="nd0-zq-YHq" id="11b-FP-5oe"/>
                         <outlet property="titleTextField" destination="PMC-tC-m7R" id="7nv-Qz-uhb"/>
                     </connections>

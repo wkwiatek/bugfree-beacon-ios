@@ -1,6 +1,7 @@
 import Foundation
 
 class MyBeacon: AbstractBeacon {
+    
     var title: String?
     var subtitle: String?
     var content: String?
@@ -14,9 +15,11 @@ class MyBeacon: AbstractBeacon {
     var imageUrl: NSURL?
     var detailsUrl: NSURL?
     
-    init(title: String, subtitle: String, content: String, template: String,
+    init(major: Int, minor: Int, uuid: String, title: String, subtitle: String, content: String, template: String,
         titleColor: String, subtitleColor: String, contentColor: String, backgroundColor: String) {
-        
+            
+            super.init(minor: minor, major: major, uuid: uuid)
+            
             self.title = title
             self.subtitle = subtitle
             self.content = content
