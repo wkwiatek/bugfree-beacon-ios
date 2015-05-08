@@ -53,7 +53,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func saveBeaconData(sender: AnyObject) {
-        println("Updating beacon with new data")
+        println("Updating beacon with new data, template")
         
         BejkonREST.updateBeacon(
             beacon!.id!,
@@ -66,7 +66,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
             content: contentTextField.text,
             imageUrl: beacon!.imageUrl!,
             detailsUrl: beacon!.detailsUrl!,
-            templateType: "ROUNDED_IMAGE",
+            templateType: getTemplateTypeName(templateSegmentedControl),
             titleColor: titleColorTextField.text,
             subtitleColor: subtitleTextField.text,
             contentColor: contenColorTextField.text,
@@ -86,4 +86,13 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    func getTemplateTypeName(segmentedControl: UISegmentedControl) -> String {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0: return "ROUNDED_IMAGE"
+        case 1: return "SQUARED_IMAGE"
+        case 2: return "SQUARED_IMAGE_ALIGN_LEFT"
+            
+        default: return "ROUNDED_IMAGE"
+        }
+    }
 }
