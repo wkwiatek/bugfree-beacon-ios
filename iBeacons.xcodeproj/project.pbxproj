@@ -24,11 +24,13 @@
 		FF00B3991ABEF244005140B2 /* UrlDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00B3981ABEF244005140B2 /* UrlDetailsViewController.swift */; };
 		FF0AFE941AF01F2700B21462 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0AFE931AF01F2700B21462 /* InitViewController.swift */; };
 		FF0AFE961AF0235600B21462 /* BeaconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */; };
+		FF2BE2EC1AF3F9AB00DC41AC /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2BE2EB1AF3F9AB00DC41AC /* BeaconManager.swift */; };
 		FF3084661AF0918D00495295 /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3084651AF0918D00495295 /* BeaconTableViewCell.swift */; };
 		FF3084681AF097E500495295 /* RangedBeaconDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3084671AF097E500495295 /* RangedBeaconDetailsViewController.swift */; };
 		FF35CA6A1ADCC14500D02526 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF35CA691ADCC14500D02526 /* Utils.swift */; };
 		FF4348E11AF1E41D0025A980 /* AbstractBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4348E01AF1E41D0025A980 /* AbstractBeacon.swift */; };
 		FF4348E31AF1E4840025A980 /* MyBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4348E21AF1E4840025A980 /* MyBeacon.swift */; };
+		FF7CEBF71AF407E200F37D14 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7CEBF61AF407E200F37D14 /* Utils.swift */; };
 		FF876D621AA62A000013D613 /* BejkonREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF876D611AA62A000013D613 /* BejkonREST.swift */; };
 		FF9C12BD1AF15F330065C9F5 /* RangedBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C12BC1AF15F330065C9F5 /* RangedBeacon.swift */; };
 		FF9C12BF1AF15F6E0065C9F5 /* BeaconFeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C12BE1AF15F6E0065C9F5 /* BeaconFeeder.swift */; };
@@ -84,11 +86,13 @@
 		FF0AFE931AF01F2700B21462 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconsTableViewController.swift; sourceTree = "<group>"; };
 		FF0C19AF1AE40FC60036CE74 /* ObjCBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+		FF2BE2EB1AF3F9AB00DC41AC /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		FF3084651AF0918D00495295 /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
 		FF3084671AF097E500495295 /* RangedBeaconDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangedBeaconDetailsViewController.swift; sourceTree = "<group>"; };
 		FF35CA691ADCC14500D02526 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FF4348E01AF1E41D0025A980 /* AbstractBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractBeacon.swift; sourceTree = "<group>"; };
 		FF4348E21AF1E4840025A980 /* MyBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBeacon.swift; sourceTree = "<group>"; };
+		FF7CEBF61AF407E200F37D14 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FF876D611AA62A000013D613 /* BejkonREST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BejkonREST.swift; sourceTree = "<group>"; };
 		FF9C12BC1AF15F330065C9F5 /* RangedBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangedBeacon.swift; sourceTree = "<group>"; };
 		FF9C12BE1AF15F6E0065C9F5 /* BeaconFeeder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconFeeder.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				FF0AFE931AF01F2700B21462 /* InitViewController.swift */,
 				FF0AFE951AF0235600B21462 /* BeaconsTableViewController.swift */,
 				FF3084651AF0918D00495295 /* BeaconTableViewCell.swift */,
+				FF2BE2EB1AF3F9AB00DC41AC /* BeaconManager.swift */,
+				FF7CEBF61AF407E200F37D14 /* Utils.swift */,
 				FF3084671AF097E500495295 /* RangedBeaconDetailsViewController.swift */,
 				FFBCB2A01AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift */,
 				1A85FA711AE39710006ECA6C /* Main.storyboard */,
@@ -373,6 +379,7 @@
 				TargetAttributes = {
 					1A85FA661AE39710006ECA6C = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 8C3MRTNM83;
 					};
 					1A85FA7C1AE39710006ECA6C = {
 						CreatedOnToolsVersion = 6.3;
@@ -548,9 +555,11 @@
 				FF0AFE961AF0235600B21462 /* BeaconsTableViewController.swift in Sources */,
 				FF9C12BF1AF15F6E0065C9F5 /* BeaconFeeder.swift in Sources */,
 				FF0AFE941AF01F2700B21462 /* InitViewController.swift in Sources */,
+				FF7CEBF71AF407E200F37D14 /* Utils.swift in Sources */,
 				FF4348E31AF1E4840025A980 /* MyBeacon.swift in Sources */,
 				FF4348E11AF1E41D0025A980 /* AbstractBeacon.swift in Sources */,
 				1A85FA6C1AE39710006ECA6C /* AppDelegate.swift in Sources */,
+				FF2BE2EC1AF3F9AB00DC41AC /* BeaconManager.swift in Sources */,
 				FF3084681AF097E500495295 /* RangedBeaconDetailsViewController.swift in Sources */,
 				FFBCB2A11AF39F52009EAEB9 /* MyBeaconDetailsViewController.swift in Sources */,
 				FFBCB2A41AF3BFA1009EAEB9 /* BejkonREST.swift in Sources */,
@@ -646,6 +655,7 @@
 			baseConfigurationReference = 099D27526693DBED581D63FF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -657,6 +667,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = iAdmin/ObjCBridge.h;
 			};
 			name = Debug;
@@ -666,6 +677,7 @@
 			baseConfigurationReference = B67A35AA18216FDAE0D80797 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -674,6 +686,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = iAdmin/ObjCBridge.h;
 			};
 			name = Release;

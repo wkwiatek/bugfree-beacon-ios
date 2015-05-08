@@ -1,6 +1,6 @@
 import UIKit
 
-class MyBeaconDetailsViewController: UIViewController {
+class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
 
     var beacon: MyBeacon?
     
@@ -15,6 +15,15 @@ class MyBeaconDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.titleTextField.delegate = self
+        self.subtitleTextField.delegate = self
+        self.contentTextField.delegate = self
+        self.titleColorTextField.delegate = self
+        self.subtitleColorTextField.delegate = self
+        self.contenColorTextField.delegate = self
+        self.backgroundColorTextField.delegate = self
+        
         updateUI()
     }
     
@@ -62,5 +71,10 @@ class MyBeaconDetailsViewController: UIViewController {
             subtitleColor: subtitleTextField.text,
             contentColor: contenColorTextField.text,
             backgroundColor: backgroundColorTextField.text)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
