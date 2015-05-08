@@ -70,11 +70,20 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
             titleColor: titleColorTextField.text,
             subtitleColor: subtitleTextField.text,
             contentColor: contenColorTextField.text,
-            backgroundColor: backgroundColorTextField.text)
+            backgroundColor: backgroundColorTextField.text) { (response) -> () in
+
+                let alertController = UIAlertController(title: "iAdmin", message: "Beacon data updated", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+        }
+
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
+    
 }

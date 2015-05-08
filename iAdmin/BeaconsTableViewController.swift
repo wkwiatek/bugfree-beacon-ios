@@ -17,6 +17,10 @@ class BeaconsTableViewController: UITableViewController {
     // MARK: View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         refresh()
     }
     
@@ -33,7 +37,7 @@ class BeaconsTableViewController: UITableViewController {
         
         switch listType! {
         case .MY:
-            println ("Refreshin my beacons")
+            println ("Refreshing my beacons")
             
             BeaconFeeder.feedMyBeacons({ (newBeacons) -> () in
                 
