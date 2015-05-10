@@ -1,8 +1,10 @@
 import UIKit
+import EstimoteSDK
 
-class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
+class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate, ESTBeaconConnectionDelegate {
 
     var beacon: RangedBeacon?
+    var beaconConnection: ESTBeaconConnection?
     var beaconId: String?
     var beaconImageUrl: String?
     var beaconDetailsUrl: String?
@@ -15,12 +17,19 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var subtitleColorTextField: UITextField!
     @IBOutlet weak var contentColorTextField: UITextField!
     @IBOutlet weak var backgroundColorTextField: UITextField!
+    @IBOutlet weak var rangeSlider: UISlider!
+    
     
     @IBAction func saveBtn(sender: AnyObject) {
         // Update server & beacon data
         
         if beaconId == nil {
             println("Creating new beacon ...")
+            
+            self.beaconConnection!.writePower(ESTBeaconPower.Level8, completion: { (power, error) -> Void in
+                println("\(self.rangeSlider.value)")
+                println("Changed to power \(power)")
+            })
             
             BejkonREST.createBeacon(
                 beacon!.uuid,
@@ -41,6 +50,11 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
             }
         } else {
             println("Updating exisitng beacon...")
+        
+            self.beaconConnection!.writePower(ESTBeaconPower.Level8, completion: { (power, error) -> Void in
+                println("\(self.rangeSlider.value)")
+                println("Changed to power \(power)")
+            })
             
             BejkonREST.updateBeacon(
                 beaconId!,
@@ -73,6 +87,18 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
         self.subtitleColorTextField.delegate = self
         self.contentColorTextField.delegate = self
         self.backgroundColorTextField.delegate = self
+        
+        self.beaconConnection = ESTBeaconConnection(proximityUUID: NSUUID(UUIDString: beacon!.uuid), major: CLBeaconMajorValue(beacon!.major), minor: CLBeaconMajorValue(beacon!.minor), delegate: self)
+        self.beaconConnection!.startConnection()
+
+    }
+    
+    func beaconConnection(connection: ESTBeaconConnection!, didFailWithError error: NSError!) {
+        println("connection to beacon failed with error: \(error)")
+    }
+    
+    func beaconConnectionDidSucceed(connection: ESTBeaconConnection!) {
+        println("connected to beacon")
     }
     
     func feedMyBeaconData(id: String, title: String, subtitle: String, content: String, template: String, imageURL: String, detailsURL: String, titleColor: String, subtitleColor: String, contentColor: String, backgroundColor: String) {

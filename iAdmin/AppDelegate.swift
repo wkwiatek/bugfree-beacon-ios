@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EstimoteSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        ESTCloudManager.setupAppID("ios-admin", andAppToken: "3c305120b56fb57ebe4d00575bbbaaec")
+        
         return true
     }
 

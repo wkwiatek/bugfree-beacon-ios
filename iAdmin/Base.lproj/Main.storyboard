@@ -300,6 +300,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="j67-9b-00M">
+                                <rect key="frame" x="377" y="430" width="204" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="zZC-6k-fXX"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -325,16 +331,19 @@
                             <constraint firstItem="gGa-q6-s0J" firstAttribute="trailing" secondItem="iaG-Ea-FE4" secondAttribute="trailing" id="Mps-FU-bqg"/>
                             <constraint firstItem="zUs-jO-wrP" firstAttribute="trailing" secondItem="DuZ-Tr-T43" secondAttribute="trailing" id="NTH-Tr-87X"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ven-PI-fem" secondAttribute="trailing" constant="5" id="O0W-fv-xHz"/>
+                            <constraint firstItem="j67-9b-00M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ETl-oC-we5" secondAttribute="trailing" constant="10" id="R4K-sX-gdK"/>
                             <constraint firstItem="tXu-jq-WNB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4FD-CG-NEz" secondAttribute="trailing" constant="10" id="TIy-TX-PTG"/>
                             <constraint firstItem="zsV-1e-oBT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DuZ-Tr-T43" secondAttribute="trailing" constant="10" id="ViL-qE-cBm"/>
                             <constraint firstItem="z9X-an-Ad6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iaG-Ea-FE4" secondAttribute="trailing" constant="10" id="Vqe-tJ-qQs"/>
                             <constraint firstItem="GBT-d1-kcp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Izh-Cu-mUf" secondAttribute="trailing" constant="10" id="ZKD-YL-bKQ"/>
+                            <constraint firstItem="ETl-oC-we5" firstAttribute="centerY" secondItem="j67-9b-00M" secondAttribute="centerY" constant="-0.5" id="aQo-bw-NvI"/>
                             <constraint firstItem="ndb-Ss-nBw" firstAttribute="trailing" secondItem="Izh-Cu-mUf" secondAttribute="trailing" id="ate-le-urF"/>
                             <constraint firstItem="gGa-q6-s0J" firstAttribute="centerY" secondItem="gGu-up-LRN" secondAttribute="centerY" id="cE8-4N-fSW"/>
                             <constraint firstItem="Gtk-xt-az9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Eh0-Kp-ZMG" secondAttribute="trailing" constant="10" id="cPo-mH-tPC"/>
                             <constraint firstItem="4FD-CG-NEz" firstAttribute="trailing" secondItem="iaG-Ea-FE4" secondAttribute="trailing" id="cln-9d-vrO"/>
                             <constraint firstItem="Eh0-Kp-ZMG" firstAttribute="trailing" secondItem="Izh-Cu-mUf" secondAttribute="trailing" id="fva-vo-StY"/>
                             <constraint firstItem="Izh-Cu-mUf" firstAttribute="centerY" secondItem="GBT-d1-kcp" secondAttribute="centerY" id="gwY-4l-SOC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j67-9b-00M" secondAttribute="trailing" constant="5" id="jxq-uc-4Sd"/>
                             <constraint firstItem="ndb-Ss-nBw" firstAttribute="centerY" secondItem="t9p-91-ue9" secondAttribute="centerY" id="lJp-so-P7O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zsV-1e-oBT" secondAttribute="trailing" constant="5" id="ql4-Ix-HXF"/>
                             <constraint firstItem="ndb-Ss-nBw" firstAttribute="trailing" secondItem="4FD-CG-NEz" secondAttribute="trailing" id="smy-zz-vn5"/>
@@ -359,6 +368,7 @@
                         <outlet property="backgroundColorTextField" destination="zsV-1e-oBT" id="oVR-62-G7W"/>
                         <outlet property="contentColorTextField" destination="ven-PI-fem" id="e0b-LY-Us0"/>
                         <outlet property="contentTextField" destination="tXu-jq-WNB" id="puF-f5-Y1m"/>
+                        <outlet property="rangeSlider" destination="j67-9b-00M" id="qTw-8c-j1N"/>
                         <outlet property="subtitleColorTextField" destination="Gtk-xt-az9" id="bWu-Dy-POC"/>
                         <outlet property="subtitleTextField" destination="z9X-an-Ad6" id="tjX-ec-s0U"/>
                         <outlet property="templateSegmentedControl" destination="t9p-91-ue9" id="0be-9d-bUA"/>
