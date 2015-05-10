@@ -18,13 +18,14 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate, 
     @IBOutlet weak var contentColorTextField: UITextField!
     @IBOutlet weak var backgroundColorTextField: UITextField!
     @IBOutlet weak var rangeSlider: UISlider!
-    
+    @IBOutlet weak var saveBtn: UIButton!
     
     @IBAction func saveBtn(sender: AnyObject) {
         // Update server & beacon data
         
         if beaconId == nil {
             println("Creating new beacon ...")
+            saveBtn.enabled = false
             
             self.beaconConnection!.writePower(ESTBeaconPower.Level8, completion: { (power, error) -> Void in
                 println("\(self.rangeSlider.value)")
@@ -47,15 +48,18 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate, 
                 contentColor: contentColorTextField.text,
                 backgroundColor: backgroundColorTextField.text) { (response) -> () in
                     self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+                    self.saveBtn.enabled = true
             }
         } else {
             println("Updating exisitng beacon...")
-        
+ 
             self.beaconConnection!.writePower(ESTBeaconPower.Level8, completion: { (power, error) -> Void in
                 println("\(self.rangeSlider.value)")
                 println("Changed to power \(power)")
             })
-            
+       
+            saveBtn.enabled = false
+
             BejkonREST.updateBeacon(
                 beaconId!,
                 uuid: beacon!.uuid,
@@ -73,6 +77,7 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate, 
                 contentColor: contentColorTextField.text,
                 backgroundColor: backgroundColorTextField.text) { (response) -> () in
                     self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+                    self.saveBtn.enabled = true
             }
         }
     }

@@ -1,6 +1,6 @@
 import UIKit
 
-class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
+class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     var beacon: MyBeacon?
     
@@ -12,6 +12,10 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var contentColorTextField: UITextField!
     @IBOutlet weak var backgroundColorTextField: UITextField!
     @IBOutlet weak var templateSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var imagePreview: UIImageView!
+    
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +40,10 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
         contentColorTextField.text = beacon?.contentColor!
         backgroundColorTextField.text = beacon?.backgroundColor!
         
+        let imgUrl = NSURL(string: beacon!.imageUrl!)
+        let imageData = NSData(contentsOfURL: imgUrl!)
+        imagePreview.image = UIImage(data: imageData!)
+        
         println("Template: \(beacon?.template)")
 
         switch beacon!.template! {
@@ -54,6 +62,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func saveBeaconData(sender: AnyObject) {
         println("Updating beacon with new data, template")
+        saveBtn.enabled = false
         
         BejkonREST.updateBeacon(
             beacon!.id!,
@@ -62,18 +71,32 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
             minor: beacon!.minor,
             customer: "",
             title: titleTextField.text,
-            subtitle: subtitleColorTextField.text,
+            subtitle: subtitleTextField.text,
             content: contentTextField.text,
             imageUrl: beacon!.imageUrl!,
             detailsUrl: beacon!.detailsUrl!,
             templateType: Utils.getTemplateTypeName(templateSegmentedControl),
             titleColor: titleColorTextField.text,
-            subtitleColor: subtitleTextField.text,
+            subtitleColor: subtitleColorTextField.text,
             contentColor: contentColorTextField.text,
             backgroundColor: backgroundColorTextField.text) { (response) -> () in
                 self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+                self.saveBtn.enabled = true
         }
 
+    }
+    
+    @IBAction func changePhotoBtn(sender: AnyObject) {
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .Camera
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        imagePreview.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
