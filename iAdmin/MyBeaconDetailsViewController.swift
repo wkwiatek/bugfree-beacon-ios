@@ -9,7 +9,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var contentTextField: UITextField!
     @IBOutlet weak var titleColorTextField: UITextField!
     @IBOutlet weak var subtitleColorTextField: UITextField!
-    @IBOutlet weak var contenColorTextField: UITextField!
+    @IBOutlet weak var contentColorTextField: UITextField!
     @IBOutlet weak var backgroundColorTextField: UITextField!
     @IBOutlet weak var templateSegmentedControl: UISegmentedControl!
     
@@ -21,7 +21,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
         self.contentTextField.delegate = self
         self.titleColorTextField.delegate = self
         self.subtitleColorTextField.delegate = self
-        self.contenColorTextField.delegate = self
+        self.contentColorTextField.delegate = self
         self.backgroundColorTextField.delegate = self
         
         updateUI()
@@ -33,7 +33,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
         contentTextField.text = beacon?.content!
         titleColorTextField.text = beacon?.titleColor!
         subtitleColorTextField.text = beacon?.subtitleColor!
-        contenColorTextField.text = beacon?.contentColor!
+        contentColorTextField.text = beacon?.contentColor!
         backgroundColorTextField.text = beacon?.backgroundColor!
         
         println("Template: \(beacon?.template)")
@@ -66,10 +66,10 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
             content: contentTextField.text,
             imageUrl: beacon!.imageUrl!,
             detailsUrl: beacon!.detailsUrl!,
-            templateType: getTemplateTypeName(templateSegmentedControl),
+            templateType: Utils.getTemplateTypeName(templateSegmentedControl),
             titleColor: titleColorTextField.text,
             subtitleColor: subtitleTextField.text,
-            contentColor: contenColorTextField.text,
+            contentColor: contentColorTextField.text,
             backgroundColor: backgroundColorTextField.text) { (response) -> () in
 
                 let alertController = UIAlertController(title: "iAdmin", message: "Beacon data updated", preferredStyle: UIAlertControllerStyle.Alert)
@@ -84,15 +84,5 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
-    }
-    
-    func getTemplateTypeName(segmentedControl: UISegmentedControl) -> String {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0: return "ROUNDED_IMAGE"
-        case 1: return "SQUARED_IMAGE"
-        case 2: return "SQUARED_IMAGE_ALIGN_LEFT"
-            
-        default: return "ROUNDED_IMAGE"
-        }
     }
 }

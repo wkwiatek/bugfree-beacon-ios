@@ -1,4 +1,5 @@
 import UIKit
+import SwiftyJSON
 
 class BeaconsTableViewController: UITableViewController {
 
@@ -151,7 +152,30 @@ class BeaconsTableViewController: UITableViewController {
                 case "show_range_details":
                     let beacon = beacons[indexPath.item] as! RangedBeacon
                     let destinationMVC = segue.destinationViewController as! RangedBeaconDetailsViewController
-                    // TODO: Set things in view here
+                    
+                    destinationMVC.beacon = beacon
+                    
+                    BejkonREST.findBeacon(beacon.uuid, major: beacon.major, minor: beacon.minor) { response in
+                        let json = JSON(response.response!)
+                        var id = json[0]["id"].string
+                        
+                        if id == nil {
+                            // We don't have this beacon in db
+                        } else {
+                            // Fetch data from server
+                            destinationMVC.feedMyBeaconData(
+                                json[0]["data"]["title"].string!,
+                                subtitle: json[0]["data"]["subtitle"].string!,
+                                content: json[0]["data"]["content"].string!,
+                                template: json[0]["template"]["type"].string!,
+                                titleColor: json[0]["template"]["titleColor"].string!,
+                                subtitleColor: json[0]["template"]["subtitleColor"].string!,
+                                contentColor: json[0]["template"]["contentColor"].string!,
+                                backgroundColor: json[0]["template"]["backgroundColor"].string!
+                            )
+                        }
+                        
+                    }
                     
                 case "show_my_details":
                     let beacon = beacons[indexPath.item] as! MyBeacon
