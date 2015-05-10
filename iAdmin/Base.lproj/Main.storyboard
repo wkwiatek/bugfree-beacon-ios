@@ -574,8 +574,8 @@
                     </view>
                     <connections>
                         <outlet property="backgroundColorTextField" destination="T3X-2G-AEh" id="CKV-j2-6eX"/>
-                        <outlet property="contenColorTextField" destination="PpN-Sv-ft2" id="Gdt-oW-Mc6"/>
-                        <outlet property="contentTextField" destination="fld-Ra-8zt" id="0sK-tU-UMK"/>
+                        <outlet property="contentColorTextField" destination="PpN-Sv-ft2" id="TQb-Ta-jff"/>
+                        <outlet property="contentTextField" destination="fld-Ra-8zt" id="JFc-nf-1Uc"/>
                         <outlet property="subtitleColorTextField" destination="fCd-QE-DA2" id="GZk-Nc-bTt"/>
                         <outlet property="subtitleTextField" destination="ig3-2S-Hu1" id="Kbo-wo-mFZ"/>
                         <outlet property="templateSegmentedControl" destination="db9-Qd-fHW" id="GdF-mM-Uw4"/>
