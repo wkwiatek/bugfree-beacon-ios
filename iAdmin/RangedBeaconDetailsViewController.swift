@@ -3,6 +3,9 @@ import UIKit
 class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
 
     var beacon: RangedBeacon?
+    var beaconId: String?
+    var beaconImageUrl: String?
+    var beaconDetailsUrl: String?
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var subtitleTextField: UITextField!
@@ -15,7 +18,28 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveBtn(sender: AnyObject) {
         // Update server & beacon data
-        println("Updating beacon with UUID: \(beacon?.uuid)")
+        println("Updating beacon with ID: \(beaconId)")
+        
+        BejkonREST.updateBeacon(
+            beaconId!,
+            uuid: beacon!.uuid,
+            major: beacon!.major,
+            minor: beacon!.minor,
+            customer: "",
+            title: titleTextField.text,
+            subtitle: subtitleTextField.text,
+            content: contentTextField.text,
+            imageUrl: beaconImageUrl!,
+            detailsUrl: beaconDetailsUrl!,
+            templateType: Utils.getTemplateTypeName(templateSegmentedControl),
+            titleColor: titleColorTextField.text,
+            subtitleColor: subtitleTextField.text,
+            contentColor: contentColorTextField.text,
+            backgroundColor: backgroundColorTextField.text) { (response) -> () in
+                self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+        }
+        
+        
     }
     
     override func viewDidLoad() {
@@ -30,7 +54,11 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
         self.backgroundColorTextField.delegate = self
     }
     
-    func feedMyBeaconData(title: String, subtitle: String, content: String, template: String, titleColor: String, subtitleColor: String, contentColor: String, backgroundColor: String) {
+    func feedMyBeaconData(id: String, title: String, subtitle: String, content: String, template: String, imageURL: String, detailsURL: String, titleColor: String, subtitleColor: String, contentColor: String, backgroundColor: String) {
+        
+        beaconId = id
+        beaconImageUrl = imageURL
+        beaconDetailsUrl = detailsURL
         
         titleTextField.text = title
         subtitleTextField.text = subtitle

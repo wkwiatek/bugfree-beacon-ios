@@ -18,4 +18,10 @@ class Utils {
         default: return "ROUNDED_IMAGE"
         }
     }
+    
+    static func getAlertController() -> UIAlertController {
+        let alertController = UIAlertController(title: "iAdmin", message: "Beacon data updated", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+        return alertController
+    }
 }

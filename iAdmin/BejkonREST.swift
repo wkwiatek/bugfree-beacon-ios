@@ -76,6 +76,8 @@ class BejkonREST {
                 responseFromServer.error = error
                 responseFromServer.response = responseBody
                 
+                println("REQ: \(request)")
+                
                 completion(response: responseFromServer)
         }
     }

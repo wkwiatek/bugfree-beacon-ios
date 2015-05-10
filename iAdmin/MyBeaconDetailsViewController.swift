@@ -71,12 +71,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
             subtitleColor: subtitleTextField.text,
             contentColor: contentColorTextField.text,
             backgroundColor: backgroundColorTextField.text) { (response) -> () in
-
-                let alertController = UIAlertController(title: "iAdmin", message: "Beacon data updated", preferredStyle: UIAlertControllerStyle.Alert)
-                
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
         }
 
     }

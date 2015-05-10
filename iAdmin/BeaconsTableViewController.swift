@@ -164,10 +164,13 @@ class BeaconsTableViewController: UITableViewController {
                         } else {
                             // Fetch data from server
                             destinationMVC.feedMyBeaconData(
-                                json[0]["data"]["title"].string!,
+                                json[0]["id"].string!,
+                                title: json[0]["data"]["title"].string!,
                                 subtitle: json[0]["data"]["subtitle"].string!,
                                 content: json[0]["data"]["content"].string!,
                                 template: json[0]["template"]["type"].string!,
+                                imageURL: json[0]["data"]["imageUrl"].string!,
+                                detailsURL: json[0]["data"]["detailsUrl"].string!,
                                 titleColor: json[0]["template"]["titleColor"].string!,
                                 subtitleColor: json[0]["template"]["subtitleColor"].string!,
                                 contentColor: json[0]["template"]["contentColor"].string!,
