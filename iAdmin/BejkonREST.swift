@@ -42,6 +42,47 @@ class BejkonREST {
         }
     }
     
+    static func createBeacon(uuid: String, major: Int, minor: Int, customer: String, title: String, subtitle: String, content: String, imageUrl: String, detailsUrl: String, templateType: String, titleColor: String, subtitleColor: String, contentColor: String, backgroundColor: String, completion: (response: Response) -> ()) {
+        
+        var responseFromServer = Response()
+        
+        let params: [String : AnyObject] = [
+            "uuid": uuid,
+            "major": major,
+            "minor": minor,
+            "customer": customer,
+            "data":[
+                "title": title,
+                "subtitle": subtitle,
+                "content": content,
+                "imageUrl": imageUrl,
+                "detailsUrl": detailsUrl
+            ],
+            "template":[
+                "type": templateType,
+                "titleColor": titleColor,
+                "subtitleColor": subtitleColor,
+                "contentColor": contentColor,
+                "backgroundColor": backgroundColor
+            ]
+        ]
+        
+        Alamofire
+            .request(.POST, "\(host)/beacon/", parameters: params, encoding: .JSON)
+            .response { (request, response, responseBody, error) -> Void in
+                
+                responseFromServer.success = true
+                responseFromServer.error = error
+                responseFromServer.response = responseBody
+                
+                println("REQ: \(request)")
+                println("RES: \(responseFromServer.response!)")
+                
+                completion(response: responseFromServer)
+        }
+        
+    }
+    
     static func updateBeacon(id: String, uuid: String, major: Int, minor: Int, customer: String, title: String, subtitle: String, content: String, imageUrl: String, detailsUrl: String, templateType: String, titleColor: String, subtitleColor: String, contentColor: String, backgroundColor: String, completion: (response: Response) -> ()) {
         
         var responseFromServer = Response()
@@ -81,4 +122,5 @@ class BejkonREST {
                 completion(response: responseFromServer)
         }
     }
+    
 }

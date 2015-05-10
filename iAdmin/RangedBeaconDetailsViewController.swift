@@ -18,25 +18,48 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveBtn(sender: AnyObject) {
         // Update server & beacon data
-        println("Updating beacon with ID: \(beaconId)")
         
-        BejkonREST.updateBeacon(
-            beaconId!,
-            uuid: beacon!.uuid,
-            major: beacon!.major,
-            minor: beacon!.minor,
-            customer: "",
-            title: titleTextField.text,
-            subtitle: subtitleTextField.text,
-            content: contentTextField.text,
-            imageUrl: beaconImageUrl!,
-            detailsUrl: beaconDetailsUrl!,
-            templateType: Utils.getTemplateTypeName(templateSegmentedControl),
-            titleColor: titleColorTextField.text,
-            subtitleColor: subtitleColorTextField.text,
-            contentColor: contentColorTextField.text,
-            backgroundColor: backgroundColorTextField.text) { (response) -> () in
-                self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+        if beaconId == nil {
+            println("Creating new beacon ...")
+            
+            BejkonREST.createBeacon(
+                beacon!.uuid,
+                major: beacon!.major,
+                minor: beacon!.minor,
+                customer: "",
+                title: titleTextField.text,
+                subtitle: subtitleTextField.text,
+                content: contentTextField.text,
+                imageUrl: "http://example.com",
+                detailsUrl: "http://example.com",
+                templateType: Utils.getTemplateTypeName(templateSegmentedControl),
+                titleColor: titleColorTextField.text,
+                subtitleColor: subtitleColorTextField.text,
+                contentColor: contentColorTextField.text,
+                backgroundColor: backgroundColorTextField.text) { (response) -> () in
+                    self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+            }
+        } else {
+            println("Updating exisitng beacon...")
+            
+            BejkonREST.updateBeacon(
+                beaconId!,
+                uuid: beacon!.uuid,
+                major: beacon!.major,
+                minor: beacon!.minor,
+                customer: "",
+                title: titleTextField.text,
+                subtitle: subtitleTextField.text,
+                content: contentTextField.text,
+                imageUrl: beaconImageUrl!,
+                detailsUrl: beaconDetailsUrl!,
+                templateType: Utils.getTemplateTypeName(templateSegmentedControl),
+                titleColor: titleColorTextField.text,
+                subtitleColor: subtitleColorTextField.text,
+                contentColor: contentColorTextField.text,
+                backgroundColor: backgroundColorTextField.text) { (response) -> () in
+                    self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+            }
         }
     }
     
