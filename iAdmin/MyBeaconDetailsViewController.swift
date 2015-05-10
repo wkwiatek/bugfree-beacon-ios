@@ -12,6 +12,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var contentColorTextField: UITextField!
     @IBOutlet weak var backgroundColorTextField: UITextField!
     @IBOutlet weak var templateSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var saveBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func saveBeaconData(sender: AnyObject) {
         println("Updating beacon with new data, template")
+        saveBtn.enabled = false
         
         BejkonREST.updateBeacon(
             beacon!.id!,
@@ -72,6 +74,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
             contentColor: contentColorTextField.text,
             backgroundColor: backgroundColorTextField.text) { (response) -> () in
                 self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+                self.saveBtn.enabled = true
         }
 
     }

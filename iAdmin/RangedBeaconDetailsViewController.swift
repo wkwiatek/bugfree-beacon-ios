@@ -15,12 +15,14 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var subtitleColorTextField: UITextField!
     @IBOutlet weak var contentColorTextField: UITextField!
     @IBOutlet weak var backgroundColorTextField: UITextField!
+    @IBOutlet weak var saveBtn: UIButton!
     
     @IBAction func saveBtn(sender: AnyObject) {
         // Update server & beacon data
         
         if beaconId == nil {
             println("Creating new beacon ...")
+            saveBtn.enabled = false
             
             BejkonREST.createBeacon(
                 beacon!.uuid,
@@ -38,10 +40,12 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
                 contentColor: contentColorTextField.text,
                 backgroundColor: backgroundColorTextField.text) { (response) -> () in
                     self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+                    self.saveBtn.enabled = true
             }
         } else {
             println("Updating exisitng beacon...")
-            
+            saveBtn.enabled = false
+
             BejkonREST.updateBeacon(
                 beaconId!,
                 uuid: beacon!.uuid,
@@ -59,6 +63,7 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
                 contentColor: contentColorTextField.text,
                 backgroundColor: backgroundColorTextField.text) { (response) -> () in
                     self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
+                    self.saveBtn.enabled = true
             }
         }
     }

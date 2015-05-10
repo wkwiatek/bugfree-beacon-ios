@@ -359,6 +359,7 @@
                         <outlet property="backgroundColorTextField" destination="zsV-1e-oBT" id="oVR-62-G7W"/>
                         <outlet property="contentColorTextField" destination="ven-PI-fem" id="e0b-LY-Us0"/>
                         <outlet property="contentTextField" destination="tXu-jq-WNB" id="puF-f5-Y1m"/>
+                        <outlet property="saveBtn" destination="n6U-AF-l1f" id="OSL-49-tOX"/>
                         <outlet property="subtitleColorTextField" destination="Gtk-xt-az9" id="bWu-Dy-POC"/>
                         <outlet property="subtitleTextField" destination="z9X-an-Ad6" id="tjX-ec-s0U"/>
                         <outlet property="templateSegmentedControl" destination="t9p-91-ue9" id="0be-9d-bUA"/>
@@ -576,6 +577,7 @@
                         <outlet property="backgroundColorTextField" destination="T3X-2G-AEh" id="CKV-j2-6eX"/>
                         <outlet property="contentColorTextField" destination="PpN-Sv-ft2" id="TQb-Ta-jff"/>
                         <outlet property="contentTextField" destination="fld-Ra-8zt" id="JFc-nf-1Uc"/>
+                        <outlet property="saveBtn" destination="LYC-OJ-QST" id="gYe-5Y-Yq5"/>
                         <outlet property="subtitleColorTextField" destination="fCd-QE-DA2" id="GZk-Nc-bTt"/>
                         <outlet property="subtitleTextField" destination="ig3-2S-Hu1" id="Kbo-wo-mFZ"/>
                         <outlet property="templateSegmentedControl" destination="db9-Qd-fHW" id="GdF-mM-Uw4"/>
