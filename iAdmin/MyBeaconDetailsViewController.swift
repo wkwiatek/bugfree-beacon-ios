@@ -62,7 +62,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
             minor: beacon!.minor,
             customer: "",
             title: titleTextField.text,
-            subtitle: subtitleTextField.text,
+            subtitle: subtitleColorTextField.text,
             content: contentTextField.text,
             imageUrl: beacon!.imageUrl!,
             detailsUrl: beacon!.detailsUrl!,

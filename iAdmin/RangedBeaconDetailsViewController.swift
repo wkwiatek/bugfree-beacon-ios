@@ -33,13 +33,11 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate {
             detailsUrl: beaconDetailsUrl!,
             templateType: Utils.getTemplateTypeName(templateSegmentedControl),
             titleColor: titleColorTextField.text,
-            subtitleColor: subtitleTextField.text,
+            subtitleColor: subtitleColorTextField.text,
             contentColor: contentColorTextField.text,
             backgroundColor: backgroundColorTextField.text) { (response) -> () in
                 self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
         }
-        
-        
     }
     
     override func viewDidLoad() {
