@@ -1,5 +1,4 @@
 import Foundation
-import EstimoteSDK
 
 class BeaconFeeder {
     

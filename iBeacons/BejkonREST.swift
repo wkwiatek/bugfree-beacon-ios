@@ -18,7 +18,7 @@ class BejkonREST {
         var responseFromServer = Response()
         
         Alamofire
-            .request(.GET, "\(host)/beacon", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
+            .request(.GET, "\(host)/beacons", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
             .responseJSON { (request, response, json, error) in
                 
                 responseFromServer.success = true

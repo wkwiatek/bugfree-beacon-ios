@@ -16,7 +16,7 @@ class BejkonREST {
         var responseFromServer = Response()
         
         Alamofire
-        .request(.GET, "\(host)/beacon", parameters: ["uuid": uuid])
+        .request(.GET, "\(host)/beacons", parameters: ["uuid": uuid])
         .responseJSON { (request, response, json, error) in
         
             responseFromServer.success = true
@@ -31,7 +31,7 @@ class BejkonREST {
         var responseFromServer = Response()
         
         Alamofire
-            .request(.GET, "\(host)/beacon", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
+            .request(.GET, "\(host)/beacons", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
             .responseJSON { (request, response, json, error) in
                 
                 responseFromServer.success = true
@@ -68,7 +68,7 @@ class BejkonREST {
         ]
         
         Alamofire
-            .request(.POST, "\(host)/beacon/", parameters: params, encoding: .JSON)
+            .request(.POST, "\(host)/beacons/", parameters: params, encoding: .JSON)
             .response { (request, response, responseBody, error) -> Void in
                 
                 responseFromServer.success = true
@@ -110,7 +110,7 @@ class BejkonREST {
         ]
         
         Alamofire
-            .request(.PUT, "\(host)/beacon/\(id)", parameters: params, encoding: .JSON)
+            .request(.PUT, "\(host)/beacons/\(id)", parameters: params, encoding: .JSON)
             .response { (request, response, responseBody, error) -> Void in
                 
                 responseFromServer.success = true
