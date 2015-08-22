@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import EstimoteSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

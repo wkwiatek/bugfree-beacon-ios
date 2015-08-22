@@ -1,26 +1,16 @@
 PODS:
-  - Alamofire (1.2.0)
-  - EstimoteSDK (3.2.2)
-  - SwiftyJSON (2.1.3)
+  - Alamofire (1.3.1)
+  - EstimoteSDK (3.4.0)
+  - SwiftyJSON (2.2.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.2)
-  - EstimoteSDK (~> 3.2.2)
-  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`, branch `xcode6.3`)
-
-EXTERNAL SOURCES:
-  SwiftyJSON:
-    :branch: xcode6.3
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
-
-CHECKOUT OPTIONS:
-  SwiftyJSON:
-    :commit: 008a09d7ea8b13c03fb59b35c01aad339584a5e1
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  - Alamofire (~> 1.3)
+  - EstimoteSDK
+  - SwiftyJSON (~> 2.2.1)
 
 SPEC CHECKSUMS:
-  Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
-  EstimoteSDK: 357d27143d8cfb3bc7a98cf45d026409c4d0cd7d
-  SwiftyJSON: a561c2a840121085bec8a2dfeac97a360fc66901
+  Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
+  EstimoteSDK: 2a8a44d63bfd6a69b1729a2853e737d1442b53a3
+  SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.38.2

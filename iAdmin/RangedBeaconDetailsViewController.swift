@@ -1,5 +1,4 @@
 import UIKit
-import EstimoteSDK
 
 class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate, ESTBeaconConnectionDelegate {
 
