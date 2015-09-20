@@ -38,7 +38,7 @@ class BeaconsTableViewController: UITableViewController {
         
         switch listType! {
         case .MY:
-            println ("Refreshing my beacons")
+            print ("Refreshing my beacons")
             
             BeaconFeeder.feedMyBeacons({ (newBeacons) -> () in
                 
@@ -55,7 +55,7 @@ class BeaconsTableViewController: UITableViewController {
             
             break
         case .RANGED:
-            println("Refreshing ranged beacons")
+            print("Refreshing ranged beacons")
             
             BeaconFeeder.feedFromRanging { (newBeacons) -> () in
                 
@@ -157,7 +157,7 @@ class BeaconsTableViewController: UITableViewController {
                     
                     BejkonREST.findBeacon(beacon.uuid, major: beacon.major, minor: beacon.minor) { response in
                         let json = JSON(response.response!)
-                        var id = json[0]["id"].string
+                        let id = json[0]["id"].string
                         
                         if id == nil {
                             // We don't have this beacon in db

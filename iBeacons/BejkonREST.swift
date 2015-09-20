@@ -19,11 +19,11 @@ class BejkonREST {
         
         Alamofire
             .request(.GET, "\(host)/beacons", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
-            .responseJSON { (request, response, json, error) in
+            .responseJSON { request, response, data in
                 
                 responseFromServer.success = true
-                responseFromServer.error = error
-                responseFromServer.response = json
+                responseFromServer.error = data.error as? NSError
+                responseFromServer.response = data.value
                 
                 completion(response: responseFromServer)
         }

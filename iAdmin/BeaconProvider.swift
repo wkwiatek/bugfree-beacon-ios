@@ -9,9 +9,9 @@ class BeaconProvider {
         BejkonREST.findAll(uuid) { response in
             let json = JSON(response.response!)
 
-            for (index: String, singleBeacon: JSON) in json {
+            for (_, singleBeacon): (String, JSON) in json {
                                 
-                var beacon = MyBeacon(
+                let beacon = MyBeacon(
                     major: singleBeacon["major"].int!,
                     minor: singleBeacon["minor"].int!,
                     uuid: singleBeacon["uuid"].string!,

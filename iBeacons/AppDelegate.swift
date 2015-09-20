@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         if(UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:")))
         {
-            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound , UIUserNotificationType.Alert , UIUserNotificationType.Badge], categories: nil))
         }
         else
         {
@@ -20,23 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(application: UIApplication) {
-        println("Application will resign active")
+        print("Application will resign active")
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        println("Application entered background.")
+        print("Application entered background.")
         beaconManager.appActive = false
         beaconManager.startMonitoring()
         beaconManager.removeBeaconsInRangeFromMemory()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        println("Application enters foreground...")
+        print("Application enters foreground...")
         beaconManager.appActive = true
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        println("Application become active")
+        print("Application become active")
         beaconManager.appActive = true
     }
 
