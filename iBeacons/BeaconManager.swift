@@ -2,13 +2,7 @@ import Foundation
 import CoreLocation
 import SwiftyJSON
 
-extension CLBeacon: Equatable {}
-
 public func ==(lhs: CLBeacon, rhs: CLBeacon) -> Bool {
-    if lhs.major == nil || lhs.minor == nil  || lhs.proximityUUID == nil || rhs.major == nil || rhs.minor == nil  || rhs.proximityUUID == nil {
-        return false
-    }
-    
     return lhs.major == rhs.major && lhs.minor == rhs.minor && lhs.proximityUUID == rhs.proximityUUID
 }
 
@@ -57,7 +51,7 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     
     
     func startMonitoring() {
-        let region : CLBeaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid), identifier: "Estimote");
+        let region : CLBeaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid)!, identifier: "Estimote");
 
         locationManager.delegate = self;
         locationManager.requestAlwaysAuthorization();
@@ -67,14 +61,14 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     }
     
     func stopMonitoring() {
-        let region : CLBeaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid), identifier: "Estimote");
+        let region : CLBeaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: uuid)!, identifier: "Estimote");
 
         locationManager.stopMonitoringForRegion(region)
         locationManager.stopRangingBeaconsInRegion(region)
     }
     
     func collectData(beacon: AnyObject) {
-        var beacon = beacon as! CLBeacon;
+        let beacon = beacon as! CLBeacon;
         var bData = BeaconData(beacon: beacon)
 
         server.findBeacon(uuid, major: beacon.major.integerValue, minor: beacon.minor.integerValue) { response in
@@ -89,9 +83,16 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
             bData.subtitleColor = json[0]["template"]["subtitleColor"].string
             bData.contentColor = json[0]["template"]["contentColor"].string
             bData.backgroundColor = json[0]["template"]["backgroundColor"].string
-
-            bData.imageUrl = NSURL(string: json[0]["data"]["imageUrl"].string!)
-            bData.detailsUrl = NSURL(string: json[0]["data"]["detailsUrl"].string!)
+            
+            if let urlString = json[0]["data"]["imageUrl"].string {
+                bData.imageUrl = NSURL(string: urlString)
+            }
+//            bData.imageUrl = NSURL(string: json[0]["data"]["imageUrl"].string!)
+            
+            if let urlString = json[0]["data"]["detailsUrl"].string {
+                bData.detailsUrl = NSURL(string: urlString)
+            }
+//            bData.detailsUrl = NSURL(string: json[0]["data"]["detailsUrl"].string!)
             
             if (self.appActive) {
                 self.noSignalView?.presentDetails(bData)
@@ -102,47 +103,44 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     }
     
     func presentPushNotification(data: BeaconData) {
-        var notification : UILocalNotification = UILocalNotification();
+        let notification : UILocalNotification = UILocalNotification();
         notification.alertBody = data.title! + " " + data.subtitle!;
         notification.soundName = UILocalNotificationDefaultSoundName;
         UIApplication.sharedApplication().presentLocalNotificationNow(notification);
     }
     
-    func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
-        println("ESTBeaconManagerDelegate staring monitoring for region: \(region.identifier)");
+    func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion) {
+        print("ESTBeaconManagerDelegate staring monitoring for region: \(region.identifier)");
     }
     
-    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
-        println("Beacon entered region");
+    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        print("Beacon entered region");
     }
     
     func removeBeaconsInRangeFromMemory() {
         beaconsInRange.removeAll();
     }
     
-    func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
-        println("Beacon left region");
+    func locationManager(manager: CLLocationManager!,idExitRegion region: CLRegion!) {
+        print("Beacon left region");
         removeBeaconsInRangeFromMemory()
     }
-    
-    func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject], inRegion region: CLBeaconRegion!) {
-        
+    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
-
-        println("Ranged beacons(\(beacons.count))");
-
+        
+        print("Ranged beacons(\(beacons.count))");
+        
         if (knownBeacons.count > 0) {
             
-            if let beacon = knownBeacons[0] as? CLBeacon {
-
-                if (closestBeacon == beacon) {
-                    println("it's the same beacon in range")
-                } else {
-                    closestBeacon = beacon
-                    collectData(beacon)
-                }
+            let beacon = knownBeacons[0]
+                
+            if (closestBeacon == beacon) {
+                print("it's the same beacon in range")
+            } else {
+                closestBeacon = beacon
+                collectData(beacon)
             }
-
+            
         } else {
             removeBeaconsInRangeFromMemory()
         }

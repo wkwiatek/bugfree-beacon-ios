@@ -17,11 +17,11 @@ class BejkonREST {
         
         Alamofire
         .request(.GET, "\(host)/beacons", parameters: ["uuid": uuid])
-        .responseJSON { (request, response, json, error) in
+        .responseJSON { request, response, data in
         
             responseFromServer.success = true
-            responseFromServer.error = error
-            responseFromServer.response = json
+            responseFromServer.error = data.error as? NSError
+            responseFromServer.response = data.value
             
             completion(response: responseFromServer)
         }
@@ -32,11 +32,11 @@ class BejkonREST {
         
         Alamofire
             .request(.GET, "\(host)/beacons", parameters: ["uuid": uuid, "major": major.description, "minor": minor.description])
-            .responseJSON { (request, response, json, error) in
+            .responseJSON { request, response, data in
                 
                 responseFromServer.success = true
-                responseFromServer.error = error
-                responseFromServer.response = json
+                responseFromServer.error = data.error as? NSError
+                responseFromServer.response = data.value
                 
                 completion(response: responseFromServer)
         }
@@ -69,14 +69,14 @@ class BejkonREST {
         
         Alamofire
             .request(.POST, "\(host)/beacons/", parameters: params, encoding: .JSON)
-            .response { (request, response, responseBody, error) -> Void in
+            .responseJSON { request, response, responseBody -> Void in
                 
                 responseFromServer.success = true
-                responseFromServer.error = error
-                responseFromServer.response = responseBody
+                responseFromServer.error = responseBody.error as? NSError
+                responseFromServer.response = responseBody.value
                 
-                println("REQ: \(request)")
-                println("RES: \(responseFromServer.response!)")
+                print("REQ: \(request)")
+                print("RES: \(responseFromServer.response!)")
                 
                 completion(response: responseFromServer)
         }
@@ -111,13 +111,13 @@ class BejkonREST {
         
         Alamofire
             .request(.PUT, "\(host)/beacons/\(id)", parameters: params, encoding: .JSON)
-            .response { (request, response, responseBody, error) -> Void in
+            .responseJSON { request, response, responseBody -> Void in
                 
                 responseFromServer.success = true
-                responseFromServer.error = error
-                responseFromServer.response = responseBody
+                responseFromServer.error = responseBody.error as? NSError
+                responseFromServer.response = responseBody.value
                 
-                println("REQ: \(request)")
+                print("REQ: \(request)")
                 
                 completion(response: responseFromServer)
         }

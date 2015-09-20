@@ -54,14 +54,14 @@ class DetailsViewController: UIViewController {
             
             switch beaconData!.template! {
             case "ROUNDED_IMAGE":
-                println("Adjusting things for template ROUNDED_IMAGE")
+                print("Adjusting things for template ROUNDED_IMAGE")
                 mainImage.layer.cornerRadius = mainImage.frame.size.width / 2
                 break
             case "SQUARED_IMAGE":
-                println("Adjusting things for template SQUARED_IMAGE")
+                print("Adjusting things for template SQUARED_IMAGE")
                 break
             case "SQUARED_IMAGE_ALIGN_LEFT":
-                println("Adjusting things for template SQUARED_IMAGE_ALIGN_LEFT")
+                print("Adjusting things for template SQUARED_IMAGE_ALIGN_LEFT")
                 break
             default:
                 break

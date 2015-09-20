@@ -44,7 +44,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate, UINa
         let imageData = NSData(contentsOfURL: imgUrl!)
         imagePreview.image = UIImage(data: imageData!)
         
-        println("Template: \(beacon?.template)")
+        print("Template: \(beacon?.template)")
 
         switch beacon!.template! {
             case "ROUNDED_IMAGE":
@@ -61,7 +61,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate, UINa
     }
 
     @IBAction func saveBeaconData(sender: AnyObject) {
-        println("Updating beacon with new data, template")
+        print("Updating beacon with new data, template")
         saveBtn.enabled = false
         
         BejkonREST.updateBeacon(
@@ -70,16 +70,16 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate, UINa
             major: beacon!.major,
             minor: beacon!.minor,
             customer: "",
-            title: titleTextField.text,
-            subtitle: subtitleTextField.text,
-            content: contentTextField.text,
+            title: titleTextField.text!,
+            subtitle: subtitleTextField.text!,
+            content: contentTextField.text!,
             imageUrl: beacon!.imageUrl!,
             detailsUrl: beacon!.detailsUrl!,
             templateType: Utils.getTemplateTypeName(templateSegmentedControl),
-            titleColor: titleColorTextField.text,
-            subtitleColor: subtitleColorTextField.text,
-            contentColor: contentColorTextField.text,
-            backgroundColor: backgroundColorTextField.text) { (response) -> () in
+            titleColor: titleColorTextField.text!,
+            subtitleColor: subtitleColorTextField.text!,
+            contentColor: contentColorTextField.text!,
+            backgroundColor: backgroundColorTextField.text!) { (response) -> () in
                 self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
                 self.saveBtn.enabled = true
         }
@@ -94,7 +94,7 @@ class MyBeaconDetailsViewController: UIViewController, UITextFieldDelegate, UINa
         presentViewController(imagePicker, animated: true, completion: nil)
     }
 
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         imagePreview.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }

@@ -23,12 +23,12 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate, 
         // Update server & beacon data
         
         if beaconId == nil {
-            println("Creating new beacon ...")
+            print("Creating new beacon ...")
             saveBtn.enabled = false
             
             self.beaconConnection!.writePower(ESTBeaconPower.Level8, completion: { (power, error) -> Void in
-                println("\(self.rangeSlider.value)")
-                println("Changed to power \(power)")
+                print("\(self.rangeSlider.value)")
+                print("Changed to power \(power)")
             })
             
             BejkonREST.createBeacon(
@@ -36,25 +36,25 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate, 
                 major: beacon!.major,
                 minor: beacon!.minor,
                 customer: "",
-                title: titleTextField.text,
-                subtitle: subtitleTextField.text,
-                content: contentTextField.text,
+                title: titleTextField.text!,
+                subtitle: subtitleTextField.text!,
+                content: contentTextField.text!,
                 imageUrl: "http://example.com",
                 detailsUrl: "http://example.com",
                 templateType: Utils.getTemplateTypeName(templateSegmentedControl),
-                titleColor: titleColorTextField.text,
-                subtitleColor: subtitleColorTextField.text,
-                contentColor: contentColorTextField.text,
-                backgroundColor: backgroundColorTextField.text) { (response) -> () in
+                titleColor: titleColorTextField.text!,
+                subtitleColor: subtitleColorTextField.text!,
+                contentColor: contentColorTextField.text!,
+                backgroundColor: backgroundColorTextField.text!) { (response) -> () in
                     self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
                     self.saveBtn.enabled = true
             }
         } else {
-            println("Updating exisitng beacon...")
+            print("Updating exisitng beacon...")
  
             self.beaconConnection!.writePower(ESTBeaconPower.Level8, completion: { (power, error) -> Void in
-                println("\(self.rangeSlider.value)")
-                println("Changed to power \(power)")
+                print("\(self.rangeSlider.value)")
+                print("Changed to power \(power)")
             })
        
             saveBtn.enabled = false
@@ -65,16 +65,16 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate, 
                 major: beacon!.major,
                 minor: beacon!.minor,
                 customer: "",
-                title: titleTextField.text,
-                subtitle: subtitleTextField.text,
-                content: contentTextField.text,
+                title: titleTextField.text!,
+                subtitle: subtitleTextField.text!,
+                content: contentTextField.text!,
                 imageUrl: beaconImageUrl!,
                 detailsUrl: beaconDetailsUrl!,
                 templateType: Utils.getTemplateTypeName(templateSegmentedControl),
-                titleColor: titleColorTextField.text,
-                subtitleColor: subtitleColorTextField.text,
-                contentColor: contentColorTextField.text,
-                backgroundColor: backgroundColorTextField.text) { (response) -> () in
+                titleColor: titleColorTextField.text!,
+                subtitleColor: subtitleColorTextField.text!,
+                contentColor: contentColorTextField.text!,
+                backgroundColor: backgroundColorTextField.text!) { (response) -> () in
                     self.presentViewController(Utils.getAlertController(), animated: true, completion: nil)
                     self.saveBtn.enabled = true
             }
@@ -98,11 +98,11 @@ class RangedBeaconDetailsViewController: UIViewController, UITextFieldDelegate, 
     }
     
     func beaconConnection(connection: ESTBeaconConnection!, didFailWithError error: NSError!) {
-        println("connection to beacon failed with error: \(error)")
+        print("connection to beacon failed with error: \(error)")
     }
     
     func beaconConnectionDidSucceed(connection: ESTBeaconConnection!) {
-        println("connected to beacon")
+        print("connected to beacon")
     }
     
     func feedMyBeaconData(id: String, title: String, subtitle: String, content: String, template: String, imageURL: String, detailsURL: String, titleColor: String, subtitleColor: String, contentColor: String, backgroundColor: String) {

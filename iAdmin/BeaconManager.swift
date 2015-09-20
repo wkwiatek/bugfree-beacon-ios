@@ -3,7 +3,7 @@ class BeaconManager: ESTBeaconManager, ESTBeaconManagerDelegate {
     static let uuid = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
     let beaconManager = ESTBeaconManager()
     let beaconRegion = CLBeaconRegion(
-        proximityUUID: NSUUID(UUIDString: uuid),
+        proximityUUID: NSUUID(UUIDString: uuid)!,
         identifier: "Estimote")
     
     var beaconsInRange = [CLBeacon]();
